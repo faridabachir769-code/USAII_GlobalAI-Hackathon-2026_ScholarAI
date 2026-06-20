@@ -1,0 +1,14 @@
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+python-dotenv>=1.0.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+httpx>=0.25.0
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+email-validator>=2.0.0
+openai>=1.0.0
+psycopg2-binary>=2.9.0
+# Usage: Set DATABASE_URL in .env to your PostgreSQL connection string
