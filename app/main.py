@@ -1,35 +1,45 @@
-# app/main.py - UPDATED with compare routes
 from fastapi import FastAPI
-
-from app.api import compare, eligibility, profiles
+from fastapi.middleware.cors import CORSMiddleware
+from app.api import profiles, eligibility, compare
+from app.db.database import init_db
 
 app = FastAPI(
     title="ScholarAI",
-    description="AI-powered tool to help students discover and apply for government schemes",
-    version="0.1.0",
+    description="AI-powered tool to help students discover government schemes",
+    version="0.1.0"
 )
 
-# Register routers
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Initialize DB on startup
+@app.on_event("startup")
+async def startup_event():
+    try:
+        init_db()
+        print("✅ Database initialized successfully!")
+    except Exception as e:
+        print(f"⚠️  DB initialization warning: {e}")
+
+# Routers
 app.include_router(profiles.router)
 app.include_router(eligibility.router)
 app.include_router(compare.router)
-
 
 @app.get("/")
 async def root():
     return {
         "message": "ScholarAI API is running",
-        "endpoints": [
-            "GET  /docs (Swagger UI)",
-            "GET  /redoc (ReDoc UI)",
-            "POST /api/profile (create profile)",
-            "GET  /api/profile/{profile_id} (get profile)",
-            "POST /api/eligibility/check (check scheme eligibility)",
-            "GET  /api/eligibility/schemes (list all schemes)",
-            "POST /api/eligibility/bulk-check (check all schemes)",
-            "POST /api/eligibility/test-data (create test profile)",
-            "POST /api/compare/schemes (compare multiple schemes)",
-            "POST /api/compare/decision-report (generate decision report)",
-            "GET  /api/compare/report-template (get report template)",
-        ],
+        "database": "Connected to PostgreSQL via ORM",
+        "docs": "Available at /docs"
     }
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}

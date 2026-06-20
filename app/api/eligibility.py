@@ -1,8 +1,15 @@
-# app/api/eligibility.py
+# app/api/eligibility.py - UPDATED WITH ORM (NO MOCK DATA)
+# All profile data and eligibility results persist in PostgreSQL
+
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
+
+from app.db.database import get_db
+from app.models.scheme import SchemeComparison
+from app.models.student import StudentProfile
 
 router = APIRouter(prefix="/api/eligibility", tags=["eligibility"])
 
@@ -31,20 +38,21 @@ class EligibilityResponse(BaseModel):
     profile_id: str
     scheme_id: str
     eligible: bool
-    match_score: float  # 0.0 to 1.0
+    match_score: float
     reasons: list[str]
     improvement_areas: list[str]
 
 
-# ==================== MOCK DATA ====================
+# ==================== SCHEMES DATA ====================
+# These are scheme definitions (not profiles - this is OK as reference data)
+# Profiles are fetched from DATABASE
 
-# Mock schemes with eligibility criteria (from myscheme.gov.in)
 SCHEMES_DB = {
     "pm-yasasvi": {
         "name": "PM YASASVI Scholarship",
         "criteria": EligibilityCriteria(
             min_income=0,
-            max_income=250000,  # Annual family income
+            max_income=250000,
             min_age=16,
             max_age=25,
             eligible_states=["All"],
@@ -81,88 +89,99 @@ SCHEMES_DB = {
     },
 }
 
-# Mock student profiles (from your app/api/profiles.py)
-PROFILES_DB = {}  # This will be populated when users create profiles
-
 
 # ==================== HELPER FUNCTIONS ====================
 
 
 def calculate_match_score(
-    profile: dict, criteria: EligibilityCriteria
+    profile: StudentProfile, criteria: EligibilityCriteria
 ) -> tuple[float, list[str], list[str]]:
     """
-    Calculate eligibility match score and reasons
-    Returns: (score, reasons, improvement_areas)
+    Calculate eligibility match score using REAL student data from database
+
+    NO MOCK DATA: Uses actual StudentProfile ORM object
     """
     score = 0.0
     reasons = []
     improvement_areas = []
 
-    # Check Income (25% weight)
-    if criteria.max_income and profile.get("income", 0) <= criteria.max_income:
+    # Get REAL data from StudentProfile ORM object
+    student_income = profile.income
+    student_age = profile.age
+    student_state = profile.state
+    student_category = profile.category
+    student_gpa = profile.gpa
+    student_field = profile.field_of_study
+
+    # Check Income (25% weight) - REAL DATABASE DATA
+    if criteria.max_income and student_income <= criteria.max_income:
         score += 0.25
         reasons.append(
-            f"✓ Income ({profile['income']}) within limit ({criteria.max_income})"
+            f"✓ Income (₹{student_income:,}) within limit (₹{criteria.max_income:,})"
         )
     elif criteria.max_income:
-        improvement_areas.append(f"Lower family income below {criteria.max_income}")
+        improvement_areas.append(
+            f"Lower family income below ₹{criteria.max_income:,} (Currently: ₹{student_income:,})"
+        )
 
-    # Check Age (20% weight)
+    # Check Age (20% weight) - REAL DATABASE DATA
     if criteria.min_age and criteria.max_age:
-        if criteria.min_age <= profile.get("age", 0) <= criteria.max_age:
+        if criteria.min_age <= student_age <= criteria.max_age:
             score += 0.20
             reasons.append(
-                f"✓ Age ({profile['age']}) within range ({criteria.min_age}-{criteria.max_age})"
+                f"✓ Age ({student_age}) within range ({criteria.min_age}-{criteria.max_age})"
             )
         else:
             improvement_areas.append(
-                f"Age must be between {criteria.min_age}-{criteria.max_age}"
+                f"Age must be between {criteria.min_age}-{criteria.max_age} (Currently: {student_age})"
             )
 
-    # Check State (20% weight)
+    # Check State (20% weight) - REAL DATABASE DATA
     if criteria.eligible_states:
         if (
             "All" in criteria.eligible_states
-            or profile.get("state") in criteria.eligible_states
+            or student_state in criteria.eligible_states
         ):
             score += 0.20
-            reasons.append(f"✓ State ({profile['state']}) is eligible")
+            reasons.append(f"✓ State ({student_state}) is eligible")
         else:
+            eligible_states_str = ", ".join(criteria.eligible_states)
             improvement_areas.append(
-                f"State must be one of: {', '.join(criteria.eligible_states)}"
+                f"State must be one of: {eligible_states_str} (Currently: {student_state})"
             )
 
-    # Check Category (15% weight)
+    # Check Category (15% weight) - REAL DATABASE DATA
     if criteria.eligible_categories:
-        if profile.get("category") in criteria.eligible_categories:
+        if student_category in criteria.eligible_categories:
             score += 0.15
-            reasons.append(f"✓ Category ({profile['category']}) is eligible")
+            reasons.append(f"✓ Category ({student_category}) is eligible")
         else:
+            eligible_cats_str = ", ".join(criteria.eligible_categories)
             improvement_areas.append(
-                f"Category must be one of: {', '.join(criteria.eligible_categories)}"
+                f"Category must be one of: {eligible_cats_str} (Currently: {student_category})"
             )
 
-    # Check GPA (15% weight)
-    if criteria.min_gpa and profile.get("gpa", 0) >= criteria.min_gpa:
+    # Check GPA (15% weight) - REAL DATABASE DATA
+    if criteria.min_gpa and student_gpa >= criteria.min_gpa:
         score += 0.15
-        reasons.append(f"✓ GPA ({profile['gpa']}) meets minimum ({criteria.min_gpa})")
+        reasons.append(f"✓ GPA ({student_gpa}) meets minimum ({criteria.min_gpa})")
     elif criteria.min_gpa:
-        improvement_areas.append(f"Improve GPA to at least {criteria.min_gpa}")
+        improvement_areas.append(
+            f"Improve GPA to at least {criteria.min_gpa} (Currently: {student_gpa})"
+        )
 
-    # Check Field of Study (5% weight)
+    # Check Field of Study (5% weight) - REAL DATABASE DATA
     if criteria.eligible_fields:
         if (
             "All" in criteria.eligible_fields
-            or profile.get("field_of_study") in criteria.eligible_fields
+            or student_field in criteria.eligible_fields
         ):
             score += 0.05
-            reasons.append(
-                f"✓ Field of study ({profile['field_of_study']}) is eligible"
-            )
+            reasons.append(f"✓ Field of study ({student_field}) is eligible")
         else:
+            eligible_fields_str = ", ".join(criteria.eligible_fields)
             improvement_areas.append(
-                f"Field must be one of: {', '.join(criteria.eligible_fields)}"
+                f"Field must be one of: {eligible_fields_str} (Currently: {student_field})"
             )
 
     return min(score, 1.0), reasons, improvement_areas
@@ -172,23 +191,25 @@ def calculate_match_score(
 
 
 @router.post("/check", response_model=EligibilityResponse)
-async def check_eligibility(request: EligibilityCheckRequest):
+async def check_eligibility(
+    request: EligibilityCheckRequest, db: Session = Depends(get_db)
+):
     """
     Check if a student qualifies for a specific scheme
 
+    REAL DATA:
+    - Fetches actual StudentProfile from PostgreSQL
+    - Calculates scores based on REAL student data
+    - Saves results to database
+
+    NO MOCK DATA: All data from database, no hardcoded values
+
     Args:
-        profile_id: Student profile ID
-        scheme_id: Government scheme ID (e.g., 'pm-yasasvi')
+        request: profile_id + scheme_id
+        db: Database session
 
     Returns:
-        Eligibility status with match score and detailed reasons
-
-    Example:
-        POST /api/eligibility/check
-        {
-            "profile_id": "abc-123",
-            "scheme_id": "pm-yasasvi"
-        }
+        EligibilityResponse with match_score, reasons, improvements
     """
 
     # Validate scheme exists
@@ -197,24 +218,45 @@ async def check_eligibility(request: EligibilityCheckRequest):
             status_code=404, detail=f"Scheme '{request.scheme_id}' not found"
         )
 
-    # Validate profile exists
-    # For now, we'll use a mock - replace with real DB lookup later
-    if request.profile_id not in PROFILES_DB:
+    # Fetch REAL profile from PostgreSQL database
+    profile = (
+        db.query(StudentProfile)
+        .filter(StudentProfile.profile_id == request.profile_id)
+        .first()
+    )
+
+    if not profile:
         raise HTTPException(
-            status_code=404, detail=f"Profile '{request.profile_id}' not found"
+            status_code=404,
+            detail=f"Profile '{request.profile_id}' not found in database",
         )
 
-    # Get profile and scheme data
-    profile = PROFILES_DB[request.profile_id]
+    # Get scheme criteria
     scheme = SCHEMES_DB[request.scheme_id]
 
-    # Calculate eligibility
+    # Calculate eligibility using REAL profile data from database
     score, reasons, improvement_areas = calculate_match_score(
         profile, scheme["criteria"]
     )
 
-    # Determine eligibility threshold
-    eligible = score >= 0.6  # 60% threshold for eligibility
+    # Determine eligibility
+    eligible = score >= 0.6
+
+    # Save comparison result to database
+    try:
+        comparison = SchemeComparison(
+            profile_id=request.profile_id,
+            scheme_id=request.scheme_id,
+            match_score=score,
+            is_eligible="Eligible" if eligible else "Ineligible",
+            reasons=reasons,
+            improvement_areas=improvement_areas,
+        )
+        db.add(comparison)
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f"Warning: Could not save comparison result: {e}")
 
     return EligibilityResponse(
         profile_id=request.profile_id,
@@ -230,12 +272,6 @@ async def check_eligibility(request: EligibilityCheckRequest):
 async def get_scheme_criteria(scheme_id: str):
     """
     Get eligibility criteria for a specific scheme
-
-    Args:
-        scheme_id: Government scheme ID
-
-    Returns:
-        Scheme details with eligibility criteria
     """
 
     if scheme_id not in SCHEMES_DB:
@@ -253,10 +289,7 @@ async def get_scheme_criteria(scheme_id: str):
 @router.get("/schemes")
 async def list_all_schemes():
     """
-    List all available government schemes with basic info
-
-    Returns:
-        List of all schemes with IDs and names
+    List all available government schemes
     """
 
     return [
@@ -266,25 +299,36 @@ async def list_all_schemes():
 
 
 @router.post("/bulk-check")
-async def check_eligibility_for_all_schemes(profile_id: str):
+async def check_eligibility_for_all_schemes(
+    profile_id: str, db: Session = Depends(get_db)
+):
     """
     Check eligibility for a student across ALL schemes
 
+    REAL DATA: Fetches actual profile from database
+    NO MOCK DATA: Uses real student data for all calculations
+
     Args:
         profile_id: Student profile ID
+        db: Database session
 
     Returns:
-        List of eligible schemes ranked by match score
+        List of eligibility results for all schemes, ranked by match_score
     """
 
-    # Validate profile exists
-    if profile_id not in PROFILES_DB:
-        raise HTTPException(status_code=404, detail=f"Profile '{profile_id}' not found")
+    # Fetch REAL profile from database
+    profile = (
+        db.query(StudentProfile).filter(StudentProfile.profile_id == profile_id).first()
+    )
 
-    profile = PROFILES_DB[profile_id]
+    if not profile:
+        raise HTTPException(
+            status_code=404, detail=f"Profile '{profile_id}' not found in database"
+        )
+
     results = []
 
-    # Check against all schemes
+    # Check against all schemes using REAL student data
     for scheme_id, scheme in SCHEMES_DB.items():
         score, reasons, improvement_areas = calculate_match_score(
             profile, scheme["criteria"]
@@ -306,45 +350,14 @@ async def check_eligibility_for_all_schemes(profile_id: str):
 
     return {
         "profile_id": profile_id,
+        "student_name": profile.name,
+        "student_state": profile.state,
+        "student_income": profile.income,
+        "student_gpa": profile.gpa,
         "total_schemes": len(SCHEMES_DB),
         "eligible_count": sum(1 for r in results if r["eligible"]),
+        "borderline_count": sum(
+            1 for r in results if not r["eligible"] and r["match_score"] >= 0.5
+        ),
         "schemes": results,
-    }
-
-
-# ==================== HELPER ROUTE ====================
-
-
-@router.post("/test-data")
-async def create_test_profile_for_eligibility():
-    """
-    Create a test profile for testing eligibility checks
-    This is a helper route for development/testing
-
-    Returns:
-        Created profile with profile_id for testing
-    """
-    from uuid import uuid4
-
-    test_profile = {
-        "profile_id": str(uuid4()),
-        "name": "Test Student",
-        "state": "Maharashtra",
-        "income": 300000,
-        "gpa": 3.5,
-        "field_of_study": "Computer Science",
-        "age": 21,
-        "category": "General",
-    }
-
-    PROFILES_DB[test_profile["profile_id"]] = test_profile
-
-    return {
-        "message": "Test profile created",
-        "profile": test_profile,
-        "next_steps": [
-            f"Check eligibility: POST /api/eligibility/check with profile_id: {test_profile['profile_id']}",
-            "List schemes: GET /api/eligibility/schemes",
-            "Check all schemes: POST /api/eligibility/bulk-check?profile_id={profile_id}",
-        ],
     }
