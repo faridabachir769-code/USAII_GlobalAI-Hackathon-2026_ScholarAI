@@ -19,16 +19,25 @@ KEY CONCEPTS:
 - Relationship: Python representation of joins
 """
 
+
+
+
+
 from datetime import datetime
 from typing import Optional
 from uuid import UUID, uuid4
 
-from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import Column, Integer, String, ForeignKey, JSON, DateTime, Text
 from sqlalchemy.dialects.postgresql import JSONB
+
+#from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, Text
+#from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
+
+documents = Column(JSON().with_variant(JSONB(), "postgresql"), nullable=True)
 
 
 class Profile(Base):
@@ -137,11 +146,16 @@ class Scheme(Base):
     eligibility: Mapped[str] = mapped_column(Text, nullable=False)
 
     # Structured Data (JSON)
+    #documents = Column(JSON().with_variant(JSONB(), "postgresql"), nullable=True)
+    #documents: Mapped[Optional[list]] = mapped_column(
+        #JSONB, nullable=True
+   # )  # e.g., ["Aadhar", "Bank Account", "Income Certificate"]
     documents: Mapped[Optional[list]] = mapped_column(
-        JSONB, nullable=True
-    )  # e.g., ["Aadhar", "Bank Account", "Income Certificate"]
+       JSON().with_variant(JSONB(), "postgresql"), nullable=True
+    ) # e.g., ["Aadhar", "Bank Account", "Income Certificate"]
     application_steps: Mapped[Optional[list]] = mapped_column(
-        JSONB, nullable=True
+       # JSONB, nullable=True
+       JSON().with_variant(JSONB(), "postgresql"), nullable=True
     )  # Step-by-step guide
 
     # URL for application
@@ -203,10 +217,12 @@ class SchemeComparison(Base):
 
     # Data
     scheme_ids: Mapped[list] = mapped_column(
-        JSONB, nullable=False
+        #JSONB, nullable=False
+        JSON().with_variant(JSONB(), "postgresql"), nullable=True
     )  # Array of scheme UUIDs compared
     report: Mapped[dict] = mapped_column(
-        JSONB, nullable=False
+        #JSONB, nullable=False
+        JSON().with_variant(JSONB(), "postgresql"), nullable=True
     )  # Full comparison report
 
     # Metadata
