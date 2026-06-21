@@ -34,6 +34,9 @@ dist/
 *.sql
 !supabase/migrations/*.sql
 
+# Supabase local config
+backend/supabase/.temp/
+
 # Data files
 *.db
 *.sqlite
