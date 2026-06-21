@@ -1,10 +1,11 @@
 import logging
 import uuid
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Optional
 
-from fastapi import Depends, FastAPI, File, Header, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, Header, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_fastapi_instrumentator import Instrumentator
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
@@ -15,14 +16,11 @@ from app.cache import (
     set_history,
     set_profile,
 )
-from app.config import settings
 from app.database import get_db, init_db, save_scheme_matches
 from app.routes.integration import router as integration_router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("sahayak_backend")
-
-from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="Sahayak AI Backend Gateway", version="2.0.0")
 
@@ -174,7 +172,9 @@ async def document_upload(
 
     contents = await file.read()
 
-    extracted_data = await extract_document_info(contents, file.filename)
+    filename = file.filename or "unknown"
+
+    extracted_data = await extract_document_info(contents, filename)
 
     profile_response = fetch_profile(session_id, db=db)
     profile = profile_response["profile"]
@@ -187,7 +187,7 @@ async def document_upload(
     if "gender" in extracted_data and extracted_data["gender"] is not None:
         profile["gender"] = extracted_data["gender"]
     if (
-        "aadhaar" in file.filename.lower()
+        "aadhaar" in filename.lower()
         or extracted_data.get("document_type") == "aadhaar"
     ):
         profile["documents"]["aadhaar"] = True
@@ -195,7 +195,7 @@ async def document_upload(
     set_profile(session_id, profile, db=db)
 
     return {
-        "message": f"Successfully processed {file.filename}",
+        "message": f"Successfully processed {filename}",
         "extracted_data": extracted_data,
         "profile": profile,
     }
