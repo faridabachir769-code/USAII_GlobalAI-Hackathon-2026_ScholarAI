@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "scheme_name": "Free Books Scheme for Scheduled Caste Students Pursuing Higher Education",
+    "slug": "fbsscsphe",
+    "url": "https://www.myscheme.gov.in/schemes/fbsscsphe",
+    "state": "Haryana",
+    "scraped_at": "2026-06-20T08:43:14.730551+00:00",
+    "chunk_count": 15,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The scheme “Free Books Scheme for Scheduled Caste Students Pursuing Higher Education” was launched by the Department of Higher Education, Government of Haryana, on 1st July, 2008. It aims to encourage Scheduled Caste (SC) students to pursue higher education. Under this scheme, SC students studying in government colleges will receive ₹2,000 per student per annum for purchasing books. The scheme will be implemented in all government colleges across Haryana.",
+    "benefits": "Eligible students will receive ₹2,000 per year for purchasing books.",
+    "eligibility": "The applicant should belong to the Scheduled Caste (SC) category. The applicant should be a domicile of Haryana. The applicant should be studying in a government college in Haryana. The applicant should be pursuing higher education.",
+    "exclusions": "",
+    "application_process": "OnlineRegistration\nStep 1: Visit the [Official Website](https://harchhatravratti.highereduhry.ac.in/) of the \"Centralized Scholarship Portal\" of the Department of Higher Education, Haryana.\nStep 2: In the menu ribbon, click \"Student > [Student Registration](https://harchhatravratti.highereduhry.ac.in/StudentRegistration)\".\nStep 3: On the next page, provide your Parivar Pehchan Patra (Family ID) and click \"Search\".*Parivar Pehchan Patra (PPP) is mandatory for availing of any Scholarship benefit. Students are advised to ensure their all particulars such as Name, DOB, Aadhar No. etc are fully updated in PPP before applying for any scholarship scheme.\nStep 4: A List of the members of your family will be displayed. Select the checkbox against your name and click \"Generate OTP\". Enter the OTP received on your registered Mobile Number and click on \"Verify OTP\".\nStep 5: After OTP verification, you will be taken to the registration page. In the registration form, all the mandatory fields get auto-filled. You only need to cross-check the information.\nStep 6: Select your Department and College. Create a Password and click \"Register\". Application\nStep 1: Visit the [Official Website](https://harchhatravratti.highereduhry.ac.in/StudentRegistration) of the \"Centralized Scholarship Portal\" of the Department of Higher Education, Haryana.\nStep 2: In the right corner of the menu ribbon, click \"[User Login](https://harchhatravratti.highereduhry.ac.in/UserLogin)\". Use the username and password created during your registration to log in.\nStep 3: Navigate to the online form of the scheme you intend to apply for. In the form, fill in all the mandatory fields and upload all the mandatory documents in the specified format and size. Carefully review all the information provided and the documents uploaded. Make any necessary corrections.\nStep 4: Click \"Apply\" to submit your application. You'll receive a confirmation message. Track Application:Students can track their application status on the [Har-Chhatravratti Portal](https://harchhatravratti.highereduhry.ac.in/TrackApplication) using their Aadhaar Number.",
+    "documents_required": "Aadhaar Card CopyApplicant’s PhotographApplicant's SignatureIncome CertificateHaryana Domicile CertificateCaste certificate10th Class Certificate12th Class CertificateParivar Pehchaan PatraFee ReceiptLast Exam Passed Certificate (Except for 1st Year Students)BPL Certificate (if applicable)Father's Death Certificate (if applicable)Any other documents as required",
+    "sources_and_references": "[Guideline](https://harchhatravratti.highereduhry.ac.in/Notices/Consolidate%20Stipend%20and%20Free%20Books%20to%20SC%20Students%20Scheme.pdf)\n[Registration Portal](https://harchhatravratti.highereduhry.ac.in/StudentRegistration)\n[Application Tracking](https://harchhatravratti.highereduhry.ac.in/TrackApplication)",
+    "scheme_name": "Free Books Scheme for Scheduled Caste Students Pursuing Higher Education",
+    "slug": "fbsscsphe",
+    "url": "https://www.myscheme.gov.in/schemes/fbsscsphe",
+    "state": "Haryana",
+    "scraped_at": "2026-06-20T08:43:14.730551+00:00",
+    "faqs": [
+      {
+        "question": "What is the aim of this scheme?",
+        "answer": "The scheme aims to encourage SC students to pursue higher education by providing financial assistance for purchasing books."
+      },
+      {
+        "question": "Is this scheme available across all colleges in Haryana?",
+        "answer": "Yes, the scheme is implemented in all government colleges across Haryana."
+      },
+      {
+        "question": "Is this scheme applicable to private college students?",
+        "answer": "No, only students studying in government colleges in Haryana are eligible."
+      },
+      {
+        "question": "Who is eligible to apply for this scheme?",
+        "answer": "Students who belong to the Scheduled Caste (SC) category, are domiciled in Haryana, are studying in a government college in Haryana, and are pursuing higher education."
+      },
+      {
+        "question": "How much financial assistance will a student receive?",
+        "answer": "Eligible students will receive ₹2,000 per year for purchasing books."
+      },
+      {
+        "question": "How can I apply for this scheme?",
+        "answer": "Visit the official website and follow the registration and application steps provided. https://harchhatravratti.highereduhry.ac.in/StudentRegistration"
+      },
+      {
+        "question": "Do I need a Family ID for registration?",
+        "answer": "Yes, you must have a Parivar Pehchan Patra (PPP), and your family details should be updated in the PPP before registering."
+      },
+      {
+        "question": "How do I track my application status?",
+        "answer": "You can track your application status on the Har-Chhatravratti Portal using your Aadhaar number. https://harchhatravratti.highereduhry.ac.in/TrackApplication"
+      },
+      {
+        "question": "Will I get the full ₹2,000 every year?",
+        "answer": "Yes, eligible students will receive the full amount of ₹2,000 per year, provided they meet the requirements."
+      }
+    ]
+  }
+}

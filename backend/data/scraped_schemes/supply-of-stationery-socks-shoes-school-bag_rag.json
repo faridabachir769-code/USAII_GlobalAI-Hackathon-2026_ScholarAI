@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "scheme_name": "Supply of School Stationery, Socks, Shoes, School Bag, etc. to all Students of Std I to VIII",
+    "slug": "supply-of-stationery-socks-shoes-school-bag",
+    "url": "https://www.myscheme.gov.in/schemes/supply-of-stationery-socks-shoes-school-bag",
+    "state": "Dadra & Nagar Haveli and Daman & Diu",
+    "scraped_at": "2026-06-19T15:15:09.027696+00:00",
+    "chunk_count": 11,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "Provision of essential stationery items, socks, shoes and school bags to students in classes I to VIII of Government schools. This includes notebooks, a geometry box, writing instruments, an eraser, a sharpener, along with footwear and a school bag. It ensures that every child, regardless of their socio-economic background, has the basic physical tools required for a productive learning environment. The scheme covers all students from Standard I to VIII.",
+    "benefits": "1. Reduces financial burden on parents by providing a comprehensive school kit. 2. Provision of free stationery kits includes school bag, pairs of socks, school shoes and a complete stationery set (notebooks, pens/pencils etc). 3. Providing shoes and socks promotes better foot health and hygiene for students commuting to school. 4. Promotes regular school attendance by supporting foundational needs.",
+    "eligibility": "1. The applicant should be a student. 2. The applicant should be studying in class 1st to 8th. 3. The applicant should be studying in a government school in UT of Dadra & Nagar Haveli and Daman & Diu.",
+    "exclusions": "",
+    "application_process": "OfflineNo separate application is required. Eligible students enrolled in government schools are automatically covered under the scheme.",
+    "documents_required": "No Documents required for this Scheme",
+    "sources_and_references": "[Supply Of School Stationery, Socks, School Bag, Etc To All Students Of Std I To VIII](https://ddd.gov.in/directorate-of-education/)",
+    "scheme_name": "Supply of School Stationery, Socks, Shoes, School Bag, etc. to all Students of Std I to VIII",
+    "slug": "supply-of-stationery-socks-shoes-school-bag",
+    "url": "https://www.myscheme.gov.in/schemes/supply-of-stationery-socks-shoes-school-bag",
+    "state": "Dadra & Nagar Haveli and Daman & Diu",
+    "scraped_at": "2026-06-19T15:15:09.027696+00:00",
+    "faqs": [
+      {
+        "question": "What is the purpose of this scheme?",
+        "answer": "Reduces financial burden on parents by providing a comprehensive school kit."
+      },
+      {
+        "question": "Which students are eligible?",
+        "answer": "Students from Classes 1 to 8 studying in government schools."
+      },
+      {
+        "question": "Are private school students eligible?",
+        "answer": "No, the scheme is only for government school students."
+      },
+      {
+        "question": "Is the scheme for both boys and girls?",
+        "answer": "Yes, it benefits both boys and girls equally."
+      },
+      {
+        "question": "How does the scheme address the issue of dropouts from Government schools?",
+        "answer": "The scheme aims to prevent dropouts by ensuring that students have access to necessary resources, thus promoting 100% enrolment and retention in Government schools."
+      }
+    ]
+  }
+}
