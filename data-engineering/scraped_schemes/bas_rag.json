@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "scheme_name": "Border Areas Scholarship",
+    "slug": "bas",
+    "url": "https://www.myscheme.gov.in/schemes/bas",
+    "state": "Meghalaya",
+    "scraped_at": "2026-06-20T07:50:59.968774+00:00",
+    "chunk_count": 17,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The scheme \"Border Areas Scholarship\" was launched by the Border Areas Development Department, Government of Meghalaya, aims to provide financial assistance to students from notified international border areas who face economic hardship. Under this scheme, year-wise scholarships or subsidies are provided to students studying in higher secondary schools and Colleges up to the Degree level. The Border Areas Development Department implements the scheme to help students continue their education without interruption due to financial constraints.",
+    "benefits": "Financial assistance in the form of annual scholarships/subsidies. Awarded year-wise based on promotion examination results. Intended to support education up to the Degree level for students from notified border area villages.",
+    "eligibility": "The applicant should be a student residing in a village notified as a Border Area village by the Border Areas Department. The applicant's father and mother should have income derived entirely from the Border Area. The applicant should pass year-wise promotion examinations to continue receiving the scholarship. The applicant should maintain good conduct, regular attendance, and satisfactory academic progress. The applicant should not leave studies before completing the course.",
+    "exclusions": "The applicant whose parents are in government service is not eligible. Students pursuing a Ph. D. or M. Phil. are not entitled to the subsidy/scholarship. The scholarship will be lost if the applicant participates in government political activities or demonstrations. B. Ed and M. Ed students currently pursuing the course are eligible, but those already in service are not entitled to the scholarship.",
+    "application_process": "OfflineStudents may contact the Head of their respective educational institutions to avail the benefits of the scheme. Note: To download the application form, [click here](https://meghalaya.gov.in/sites/default/files/forms/5border_area.pdf).",
+    "documents_required": "Aadhar CardDate of Birth CertificateResidential Certificate (showing residence in a notified Border Area village)Educational CertificatesPrevious Year’s Academic CertificatesLatest Passport Size PhotographAdmission ProofBank Account DetailsPhoto ID ProofEmail ID and Mobile Number",
+    "sources_and_references": "[Guidelines](https://megbad.gov.in/guidelines/scholarship%20guidelines.pdf)\n[Department Website](https://megeducation.gov.in/)\n[Application Form](https://meghalaya.gov.in/sites/default/files/forms/5border_area.pdf)\n[Details](https://meghalaya.gov.in/index.php/schemes/content/37489)",
+    "scheme_name": "Border Areas Scholarship",
+    "slug": "bas",
+    "url": "https://www.myscheme.gov.in/schemes/bas",
+    "state": "Meghalaya",
+    "scraped_at": "2026-06-20T07:50:59.968774+00:00",
+    "faqs": [
+      {
+        "question": "Who can apply for this support program?",
+        "answer": "Students living in villages officially recognized as border area villages and meeting certain income and academic criteria can apply."
+      },
+      {
+        "question": "Is the program open to college students?",
+        "answer": "Yes, eligible students studying up to the Degree level, including Higher Secondary and College, may receive financial assistance."
+      },
+      {
+        "question": "How is the support amount decided each year?",
+        "answer": "It is awarded annually based on the student’s promotion to the next academic level and overall progress."
+      },
+      {
+        "question": "Can students who are already working apply?",
+        "answer": "No, students who are already employed, particularly in government service, are not eligible for this benefit."
+      },
+      {
+        "question": "Is this benefit applicable to students pursuing B. Ed or M. Ed?",
+        "answer": "Yes, those currently studying B. Ed or M. Ed are eligible, provided they are not already employed."
+      },
+      {
+        "question": "Are students pursuing higher research studies eligible?",
+        "answer": "No, students pursuing M. Phil. or Ph. D. are not covered under this financial assistance program."
+      },
+      {
+        "question": "What happens if a student fails their promotion exam?",
+        "answer": "The benefit may be discontinued if the student does not pass the required academic examinations."
+      },
+      {
+        "question": "Who verifies the eligibility of applicants?",
+        "answer": "The Head of the educational institution forwards the application, and final verification is done by the concerned department."
+      },
+      {
+        "question": "Is academic performance monitored throughout the course?",
+        "answer": "Yes, continued support depends on satisfactory academic progress and regular attendance."
+      },
+      {
+        "question": "Can a student reapply if the assistance was previously discontinued?",
+        "answer": "Reapplication may be considered if the student resumes studies with proper academic performance and meets all conditions."
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "scheme_name": "State Scholarship for Class 6th to 10th (Denotified, Nomadic and Semi-Nomadic )",
+    "slug": "sscdnnsn",
+    "url": "https://www.myscheme.gov.in/schemes/sscdnnsn",
+    "state": "Madhya Pradesh",
+    "scraped_at": "2026-06-16T06:28:23.463302Z",
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The \"State Scholarship for Classes 6th to 10th\" scheme by the Department of De-notified, Nomadic, and Semi-Nomadic Welfare, Government of Madhya Pradesh, provides an annual scholarship ranging from ₹200 to ₹1,200 (for 10 months) to the students belonging to De-notified, Nomadic, and Semi-Nomadic communities studying in classes 6th to 10th. The scholarship is distributed by the Directorate of Public Distribution, Government of Madhya Pradesh.",
+    "benefits": "Annual Scholarship (for 10 months):For Classes 6th to 8thBoys: ₹200Girls: ₹600For Classes 9th to 10thBoys: ₹600Girls: ₹1200",
+    "eligibility": "The applicant should be a student. The applicant should be from a Denotified, Nomadic, and Semi-Nomadic Community. The applicant should be studying in Class 6th to 10th.*The applicant should be eligible for the scholarship even if they have failed one year.*The applicant should not need to reapply for renewal if they continue in the same category of classes (e.g., 6th to 8th or 9th to 10th).",
+    "exclusions": "",
+    "application_process": "OnlineRegistration\nStep 1: Visit the \"[Samarth Portal](https://samarth.mp.gov.in/Default)\".\nStep 2: Navigate to the top right corner of the homepage and click \"[Registration\".](https://samarth.mp.gov.in/Registration/Default)\nStep 3: On the registration page, provide the mandatory details. (the fields marked with * are mandatory). If required, verify your Mobile Number and/or Email ID via OTP. Finally, click \"Register\". Application\nStep 1: Visit the \"[Samarth Portal](https://samarth.mp.gov.in/Default)\".\nStep 2: Use the credentials you created during registration to log in.\nStep 3: Navigate to the online application form of the scheme you intend to apply for.\nStep 4: In the application form, fill in all the mandatory fields and upload all the mandatory documents in the specified format and size.\nStep 5: Carefully review all the information provided. Make any necessary corrections.\nStep 6: Acknowledge and agree to the terms and conditions, declaration, and privacy policy (if any).\nStep 7: Click the \"Submit\" to submit your application.",
+    "documents_required": "Passport-size PhotographAadhaar CardDomicile CertificateCaste CertificateSamagra IDBank Account DetailsProof of Enrolment into Class 6th to 10th",
+    "sources_and_references": "[Scheme Details](https://samarth.mp.gov.in/Public/Pages/SchemeDetail? ID=1)\n[Registration](https://samarth.mp.gov.in/Registration/Default.aspx)",
+    "scheme_name": "State Scholarship for Class 6th to 10th (Denotified, Nomadic and Semi-Nomadic )",
+    "slug": "sscdnnsn",
+    "url": "https://www.myscheme.gov.in/schemes/sscdnnsn",
+    "state": "Madhya Pradesh",
+    "scraped_at": "2026-06-16T06:28:23.463302Z",
+    "faqs": [
+      {
+        "question": "Who is eligible for the scholarship?",
+        "answer": "Students belonging to De-notified, Nomadic, and Semi-Nomadic communities are eligible."
+      },
+      {
+        "question": "What is the scholarship amount for boys in classes 6 to 8?",
+        "answer": "Boys in classes 6 to 8 receive an annual scholarship of ₹200."
+      },
+      {
+        "question": "Is an income certificate required for the scholarship?",
+        "answer": "No, an income certificate is not required for this scholarship."
+      },
+      {
+        "question": "Do students need to reapply every year?",
+        "answer": "No, students do not need to reapply for renewal if they are in the same category of classes (e.g., 6th to 8th or 9th to 10th)."
+      },
+      {
+        "question": "Can a student receive the scholarship if they have failed a year?",
+        "answer": "Yes, students are eligible for the scholarship even if they have failed a year."
+      },
+      {
+        "question": "What documents are required to apply for the scholarship?",
+        "answer": "An attested photocopy of the Permanent Caste Certificate issued by the Sub-Divisional Officer (Revenue) is required."
+      },
+      {
+        "question": "How long is the scholarship provided for each year?",
+        "answer": "The scholarship is provided for 10 months each academic year."
+      }
+    ]
+  }
+}

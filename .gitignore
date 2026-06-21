@@ -1,18 +1,1 @@
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-
-# Virtual Environment
-venv/
-env/
-
-# IDE
-.idea/
-.vscode/
 .DS_Store
-
-# Logs
-*.log

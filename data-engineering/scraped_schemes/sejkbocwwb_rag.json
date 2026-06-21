@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "scheme_name": "Schooling Education (JKBOCWWB)",
+    "slug": "sejkbocwwb",
+    "url": "https://www.myscheme.gov.in/schemes/sejkbocwwb",
+    "state": "Jammu and Kashmir",
+    "scraped_at": "2026-06-16T05:30:11.266000Z",
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The \"Schooling Education\" scheme by the Building and Other Construction Workers Welfare Board, Labour Department, Jammu & Kashmir, provides financial assistance to the children of registered workers - ₹2,500 for students in Class Nursery/1st to 5th, and ₹3,500 for students in Class 6th to 8th. The construction worker should have been engaged in building or construction work for at least 90 days in the preceding 12 months.",
+    "benefits": "For the students in Class Nursery/1st to 5th: ₹2,500 in education benefits. For the students in Class 6th to 8th: ₹3,500 in education benefits.",
+    "eligibility": "For Registration as a Building/Construction Worker:The applicant must be a resident of Jammu & Kashmir. The applicant must be a Building or Construction Worker. The age of the applicant should be between 18 and 60 years. The applicant should have worked in building or construction activities for at least 90 days in the preceding 12 months. The registration must be renewed annually. For the Application of the Welfare Scheme:One of the parents of the child must be an active, registered member of the Jammu and Kashmir Building and Other Construction Workers Welfare Board at the time of application. The child must be studying in Nursery to Class 8th.",
+    "exclusions": "",
+    "application_process": "OnlineRegistration -\nStep 1: Go to the J&K Building and Other Construction Workers Welfare Board (JKBOCWWB) [official website.](https://www.jkbocw.gov.in/Index.aspx)\nStep 2: On the homepage, find and click the \"[Labour Registration\"](https://portal.jkbocw.gov.in/MemberRegistration.aspx) link.\nStep 3: If you're a new user, click on \"Apply for New Registration.\"\nStep 4: Complete the registration form with your details, submit the form, and send the OTP to your registered mobile number. Enter the OTP and click \"Verify OTP & Submit.\"\nStep 5: After the OTP is verified, a confirmation message with your Login ID and password will be sent to your registered mobile number.\nStep 6: Use the Login ID, password, and captcha to log in (remember, the username and password are case-sensitive). filled are case-sensitive). Read all the instructions carefully and Click to continue\nStep 7: Once logged in, choose the \"Construction Worker’s Registration\" option and click on \"Registration Form.\"\nStep 8: A dashboard will appear. Complete the form by entering all required details (marked with *).\nStep 9: Upload all the important documents, such as ID proof and other relevant certificates.\nStep 10: Once the form is completed and documents uploaded, click \"Submit\" and pay the application fee online. You will receive a registration number after successful payment and submission. Application -\nStep 1: Go to the [official website](https://www.jkbocw.gov.in/Index.aspx)of the Jammu & Kashmir Building and Other Construction Workers Welfare Board.\nStep 2: Click on [\"Login,\"](https://portal.jkbocw.gov.in/LoginGuest.aspx) enter your details, and sign in to your account.\nStep 3: After logging in, click on \"Scheme Registration\" and select \"Apply for Scheme.\"\nStep 4: Choose the scheme you wish to apply for in order to avail the benefits.\nStep 5: Enter all required information and upload the necessary documents as prompted.\nStep 6: Finally, click on \"Submit Application\" to complete the process. Status Tracking - Applicant can track their application status online through the [official website](https://www.jkbocw.gov.in/Index.aspx) of the Jammu & Kashmir Building and Other Construction Workers Welfare Board. Relevant updates will be sent to the registered mobile number.",
+    "documents_required": "Documents Required for Registration as a Building/Construction Worker:Identity Proof (e.g., Aadhaar Card)Passport-size PhotographSkill-upgradation Training CertificateProof of Residence (e.g., Utility Bill, Voter ID, etc.)Ration Card (optional)Bank Account Details (e.g., Copy of Bank Passbook)Caste Certificate (if applicable)Undertaking/DeclarationAge Certificate (any one of the following):School CertificateRegistrar of Birth CertificateCertificate issued by District Medical Board (if both of the above are unavailable)Employment CertificateSignatureAny other documents as required. Documents Required for Application of a Welfare Scheme:Identity Card of the registered member (parent)Student ID CardStudent's PhotographStudent's MarksheetBirth Certificate of the student",
+    "sources_and_references": "[Scheme Details](https://www.jkbocw.gov.in/StaticPages/SchemeInformation.aspx)\n[Website](https://www.jkbocw.gov.in/Index.aspx)\n[Workers Registration](https://portal.jkbocw.gov.in/LoginGuest.aspx)",
+    "scheme_name": "Schooling Education (JKBOCWWB)",
+    "slug": "sejkbocwwb",
+    "url": "https://www.myscheme.gov.in/schemes/sejkbocwwb",
+    "state": "Jammu and Kashmir",
+    "scraped_at": "2026-06-16T05:30:11.266000Z",
+    "faqs": [
+      {
+        "question": "What is the Schooling Education Scheme?",
+        "answer": "The scheme provides financial assistance for the education of children of registered construction workers in Jammu and Kashmir."
+      },
+      {
+        "question": "Who is eligible for this scheme?",
+        "answer": "Children of registered workers with the Jammu & Kashmir Building and Other Construction Workers Welfare Board are eligible for the scheme."
+      },
+      {
+        "question": "What financial assistance is provided under this scheme?",
+        "answer": "Financial assistance of ₹2,500 is provided for children in Class Nursery/1st to 5th, and ₹3,500 for those in Class 6th to 8th."
+      },
+      {
+        "question": "What documents are required for the application?",
+        "answer": "Documents like the member's Identity Card, the student's ID card, photograph, marksheet, and birth certificate are required."
+      },
+      {
+        "question": "How many times can I apply for the scheme?",
+        "answer": "The scheme can be applied for annually, provided the registered worker’s membership is active."
+      },
+      {
+        "question": "Does the worker need to be an active member at the time of application?",
+        "answer": "Yes, the worker must have an active membership with the Welfare Board at the time of application."
+      },
+      {
+        "question": "Are there any work requirements for the worker?",
+        "answer": "Yes, the worker must have completed at least 90 days of building or construction work in the preceding 12 months."
+      },
+      {
+        "question": "What happens if the worker does not renew their registration?",
+        "answer": "If the worker's registration is not renewed, they are not eligible to apply for the scheme until they renew their membership."
+      },
+      {
+        "question": "Is the scheme available for workers registered in other states?",
+        "answer": "No, the scheme is only available to workers registered with the Jammu & Kashmir Building and Other Construction Workers Welfare Board."
+      }
+    ]
+  }
+}
