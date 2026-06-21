@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -8,6 +8,8 @@ import {
   TrendingUp,
   Shield,
   ExternalLink,
+  Star,
+  BarChart3,
 } from "lucide-react";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
@@ -27,13 +29,34 @@ const likelihoodColor = {
   Low: "text-red-600 bg-red-50",
 };
 
+function ScoreBar({ label, value, color }) {
+  const pct = Math.min(value, 100);
+  return (
+    <div className="flex items-center gap-2 text-xs">
+      <span className="w-20 text-slate-500">{label}</span>
+      <div className="flex-1 h-2 rounded-full bg-slate-100 overflow-hidden">
+        <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+      </div>
+      <span className="w-8 text-right font-medium text-slate-700">{Math.round(value)}</span>
+    </div>
+  );
+}
+
 export default function Comparison() {
   const navigate = useNavigate();
+  const { state } = useLocation();
   const [comparison, setComparison] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const singleScheme = state?.scheme;
+    if (singleScheme) {
+      const sd = { ...singleScheme, scoring_breakdown: singleScheme.scoring_breakdown };
+      setComparison([sd]);
+      setLoading(false);
+      return;
+    }
     setLoading(true);
     getRecommendedSchemes()
       .then((data) => {
@@ -59,7 +82,7 @@ export default function Comparison() {
         setError("Failed to load comparison data");
         setLoading(false);
       });
-  }, []);
+  }, [state]);
 
   if (loading) {
     return (
@@ -72,14 +95,14 @@ export default function Comparison() {
               <table className="w-full">
                 <thead className="border-b bg-slate-50">
                   <tr>
-                    {["Scheme", "Match", "Difficulty", "Likelihood", "Key Benefits", "Action"].map((h) => (
+                    {["Scheme", "Score", "Match", "Difficulty", "Likelihood", "Benefits", "Action"].map((h) => (
                       <th key={h} className="p-4 text-left text-sm font-semibold text-slate-600">{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <TableRowSkeleton key={i} cols={6} />
+                    <TableRowSkeleton key={i} cols={7} />
                   ))}
                 </tbody>
               </table>
@@ -125,6 +148,12 @@ export default function Comparison() {
     );
   }
 
+  const scoreColor = (score) => {
+    if (score >= 70) return "text-green-600";
+    if (score >= 45) return "text-amber-600";
+    return "text-red-600";
+  };
+
   return (
     <DashboardLayout>
       <main>
@@ -147,6 +176,7 @@ export default function Comparison() {
               <thead>
                 <tr className="border-b bg-slate-50 text-left text-sm font-semibold text-slate-600">
                   <th className="p-4 min-w-[200px]">Scheme</th>
+                  <th className="p-4 min-w-[100px]">Score</th>
                   <th className="p-4 min-w-[120px]">Match</th>
                   <th className="p-4 min-w-[120px]">Difficulty</th>
                   <th className="p-4 min-w-[120px]">Likelihood</th>
@@ -160,6 +190,24 @@ export default function Comparison() {
                     <td className="p-4">
                       <p className="font-semibold text-slate-900">{s.name || s.title}</p>
                       {s.ministry && <p className="mt-1 text-xs text-slate-400">{s.ministry}</p>}
+                      {s.scoring_breakdown && (
+                        <div className="mt-3 space-y-1 border-t pt-2">
+                          <ScoreBar label="Eligibility" value={s.scoring_breakdown.eligibility} color="bg-blue-500" />
+                          <ScoreBar label="Benefit" value={s.scoring_breakdown.benefit} color="bg-emerald-500" />
+                          <ScoreBar label="Goal match" value={s.scoring_breakdown.goal_alignment} color="bg-violet-500" />
+                          <ScoreBar label="Simplicity" value={s.scoring_breakdown.complexity} color="bg-amber-500" />
+                        </div>
+                      )}
+                    </td>
+                    <td className="p-4">
+                      {s.total_score != null && (
+                        <div className="flex items-center gap-1">
+                          <Star className={scoreColor(s.total_score)} size={16} />
+                          <span className={`text-lg font-bold ${scoreColor(s.total_score)}`}>
+                            {Math.round(s.total_score)}
+                          </span>
+                        </div>
+                      )}
                     </td>
                     <td className="p-4">
                       <div className="flex flex-wrap gap-1">
@@ -173,7 +221,9 @@ export default function Comparison() {
                               {r}
                             </span>
                           ))
-                        ) : null}
+                        ) : (
+                          <span className="text-xs text-slate-400">No criteria matched</span>
+                        )}
                       </div>
                     </td>
                     <td className="p-4">
@@ -203,7 +253,7 @@ export default function Comparison() {
                         ? s.benefits.length > 120
                           ? s.benefits.slice(0, 120) + "..."
                           : s.benefits
-                        : null}
+                        : "—"}
                     </td>
                     <td className="p-4">
                       <div className="flex flex-col gap-2">

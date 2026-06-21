@@ -761,7 +761,6 @@ async def retrieval_agent(state: AgentState) -> Dict[str, Any]:
             # Ministry names in the state column are central schemes — apply to all.
             state_specific = is_state_specific(scheme_state)
             if user_state and user_state != "national" and state_specific:
-            if user_state and user_state != "national" and not is_central:
                 if scheme_state.lower() != user_state:
                     logger.info(f"Retrieval state guard skipped {scheme_name}: "
                                 f"user={user_state}, scheme_state={scheme_state}")
@@ -1128,7 +1127,7 @@ CRITICAL INSTRUCTIONS — Read carefully:
 6. NEVER say "you qualify" — use "you may qualify" or "appears to be a good match".
 7. Be professional, empathetic, and clear. 2-3 paragraphs.
 8. If the data shows income limits, category requirements, or state restrictions, reference them specifically.
-9. Start with "Based on your profile, I recommend **{Scheme Name}**" — be decisive."""
+9. Start with "Based on your profile, I recommend **{{Scheme Name}}**" — be decisive."""
             text_response = await generate_text(prompt)
 
             top_scheme = matched_schemes[0]["name"] if matched_schemes else ""

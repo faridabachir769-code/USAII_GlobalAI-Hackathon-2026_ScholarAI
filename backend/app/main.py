@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from app.config import settings
 from app.database import get_db, init_db, save_scheme_matches
-from app.cache import get_profile, set_profile, get_history, set_history
+from app.cache import get_profile, set_profile, get_history, set_history, enqueue_llm_job
 from app.routes.integration import router as integration_router
 
 logging.basicConfig(level=logging.INFO)

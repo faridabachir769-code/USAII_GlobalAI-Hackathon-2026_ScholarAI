@@ -11,6 +11,7 @@ from datetime import datetime
 from app.database import get_db, Scheme, Rule, FAQ, Profile, ChatMessage, Feedback, SearchLog, UserSchemeMatch, save_scheme_matches
 from app.cache import get_profile, set_profile, enqueue_llm_job
 from app.vector_store import search_hybrid
+from app.services.scoring_service import DecisionEngine
 
 logger = logging.getLogger(__name__)
 
@@ -245,7 +246,7 @@ def recommended_schemes(
         user_state = (profile.get("state") or "").strip().lower()
         state_specific = is_state_specific(scheme_state)
         if (user_state and user_state != "national"
-                and not is_central
+                and state_specific
                 and scheme_state != user_state):
             continue
 
@@ -294,12 +295,13 @@ def compare_schemes(
 ):
     profile = get_profile(user_id) or {}
     schemes = db.query(Scheme).filter(Scheme.id.in_(req.scheme_ids)).all()
+    engine = DecisionEngine()
     results = []
     for scheme in schemes:
         rules = db.query(Rule).filter(Rule.scheme_id == scheme.id).all()
         match_reasons = []
         for rule in rules:
-            income = profile.get("income")
+            income = profile.get("income") or profile.get("annual_income")
             if income is not None and rule.income_max and float(income) <= float(rule.income_max):
                 match_reasons.append("Income eligible")
             if rule.categories_allowed:
@@ -316,7 +318,11 @@ def compare_schemes(
         sd["match_reasons"] = match_reasons
         sd["eligibility_difficulty"] = "Easy" if len(match_reasons) >= 3 else "Medium" if match_reasons else "Hard"
         sd["approval_likelihood"] = "High" if len(match_reasons) >= 3 else "Medium" if match_reasons else "Low"
+        scoring = engine.score(profile, sd, rules)
+        sd["scoring_breakdown"] = scoring["breakdown"]
+        sd["total_score"] = scoring["total_score"]
         results.append(sd)
+    results.sort(key=lambda x: x.get("total_score", 0), reverse=True)
     return {"comparison": results}
 
 
