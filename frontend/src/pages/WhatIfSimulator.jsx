@@ -10,6 +10,8 @@ import Loader from "../components/ui/Loader";
 
 import { simulateScenario } from "../services/simulation.service";
 
+import DashboardLayout from "../layouts/DashboardLayout";
+
 export default function WhatIfSimulator() {
   const { state } = useLocation();
 
@@ -38,12 +40,12 @@ export default function WhatIfSimulator() {
     setLoading(true);
 
     try {
-      const response = await simulateScenario({
+      const data = await simulateScenario({
         scheme_id: scheme?.id,
         ...form,
       });
 
-      setResult(response.data);
+      setResult(data);
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +54,8 @@ export default function WhatIfSimulator() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <DashboardLayout>
+    <main>
       <div className="mx-auto max-w-6xl px-6 py-8">
         <PageHeader
           title="What-If Simulator"
@@ -210,3 +213,6 @@ export default function WhatIfSimulator() {
         </div>
       </div>
     </main>
+    </DashboardLayout>
+  );
+}

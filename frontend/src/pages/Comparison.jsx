@@ -9,6 +9,7 @@ import {
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 import PageHeader from "../components/ui/PageHeader";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Comparison() {
   const navigate = useNavigate();
@@ -18,7 +19,8 @@ export default function Comparison() {
 
   if (!scheme) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-50">
+      <DashboardLayout>
+      <div className="flex min-h-[60vh] items-center justify-center">
         <Card className="max-w-md p-8 text-center">
           <h2 className="text-2xl font-bold">
             No Scheme Selected
@@ -37,11 +39,13 @@ export default function Comparison() {
           </Button>
         </Card>
       </div>
+      </DashboardLayout>
     );
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <DashboardLayout>
+    <main>
       <div className="mx-auto max-w-6xl px-6 py-8">
         <button
           onClick={() => navigate(-1)}
@@ -210,5 +214,6 @@ export default function Comparison() {
         </div>
       </div>
     </main>
+    </DashboardLayout>
   );
 }

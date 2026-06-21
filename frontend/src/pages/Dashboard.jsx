@@ -4,6 +4,7 @@ import { useRecommendedSchemes } from "../hooks/useSchemes";
 
 import Loader from "../components/ui/Loader";
 import PageHeader from "../components/ui/PageHeader";
+import DashboardLayout from "../layouts/DashboardLayout";
 
 export default function Dashboard() {
   const {
@@ -31,7 +32,8 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <DashboardLayout>
+    <main>
       <div className="mx-auto max-w-7xl px-6 py-8">
         <PageHeader
           title="Recommended Schemes"
@@ -60,5 +62,6 @@ export default function Dashboard() {
         )}
       </div>
     </main>
+    </DashboardLayout>
   );
 }
