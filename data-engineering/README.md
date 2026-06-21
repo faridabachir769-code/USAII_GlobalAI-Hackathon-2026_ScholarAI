@@ -1,0 +1,1 @@
+# USAII_GlobalAI-Hackathon-2026_ScholarAI

@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "scheme_name": "Gagan Bharari Shiksha Yojana for SC Students",
+    "slug": "gbsysc",
+    "url": "https://www.myscheme.gov.in/schemes/gbsysc",
+    "state": "Goa",
+    "scraped_at": "2026-06-16T06:28:03.481972Z",
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The scheme \"Gagan Bharari Shiksha Yojana for SC Students\" by the Directorate of Social Welfare, Government of Goa aims to provide additional financial assistance to Scheduled Caste students to supplement their Post Matric Scholarship maintenance allowance. Through this scheme, additional monthly allowances are provided to SC students to meet their food, travel, and disability-related expenses, as the existing Post Matric Scholarship amounts are inadequate. The applications for this scheme are accepted online. The scheme is being implemented by Chief Minister Scholarship Portal, Government of Goa.",
+    "benefits": "Additional Maintenance AllowanceFor Day Scholars: ₹750 per monthFor Hostel Residents: ₹1,500 per monthDuration: 10 months during the academic yearAdditional Disability AllowanceAmount: ₹750 per monthDuration: 10 months during the academic year",
+    "eligibility": "The applicant should be a Student. The applicant should belong to the Scheduled Caste communityThe applicant should have availed (or be eligible for) the Centrally Sponsored Post Matric Scholarship during the current academic year.",
+    "exclusions": "",
+    "application_process": "OnlineFor Registration\nStep 1: Visit the [Official Website](https://cmscholarship.goa.gov.in/) of the Chief Minister Scholarship Portal, Government of Goa.\nStep 2: At the top right corner of the landing page, click \"Register\". You will be taken to the [registration page](https://cmscholarship.goa.gov.in/fregister.aspx).\nStep 3: On the registration page, under the \"Student Registration\" section, click \"Click Here\". In the Student Registration Form, fill in the following fields:Student's Name, Gender, Category, Date of Birth (DD-MM-YYYY), Aadhaar Number, House Number, Waddo/Street, Village Panchayat/Municipality, District, Taluka, Assembly/Constituency, City/Town/Village, PIN Code, Mobile Number, Email ID.\nStep 4: Create a password ranging between 8 to 15 characters and confirm the same.\nStep 5: Click \"Register\" and then click \"Yes\" to the Confirmation Popup. For Application\nStep 1: Upon successful registration, visit the [Official Website](https://cmscholarship.goa.gov.in/) of the Chief Minister Scholarship Portal, Government of Goa.\nStep 2: At the top right corner of the landing page, click \"[Login](https://cmscholarship.goa.gov.in/flogin.aspx)\".\nStep 3: On the login page, fill in your username, password, captcha code, and click \"Login\".\nStep 4: Upon logging in, a list of eligible schemes will be displayed. Click the scheme that you intend to apply for.\nStep 5: In the \"Apply\" section on the side navigation bar, click \"Fresh Application\".\nStep 6: Fill in all the mandatory fields of the Application Form and upload all the required documents in the specified format and size and click \"Submit\". Post Application Process\n1. After successful submission of the application, your school/institution will verify the application and submit it to the directorate for further scrutiny.\n2. In case of an issue in the application form or documents uploaded, the school/institution can send back the application to the student for necessary corrections and resubmission. Track Your Application\nStep 1: In the side navigation bar, click \"[Track Application](https://cmscholarship.goa.gov.in/fhome.aspx#Track)\".\nStep 2: On the next page, provide your Aadhaar Number and Date of Birth, and click \"Submit\". Contact Us[https://cmscholarship.goa.gov.in/fcontactus.aspx](https://cmscholarship.goa.gov.in/fcontactus.aspx)",
+    "documents_required": "Aadhaar CardCaste Certificate (Valid for 3 years from date of issue)Income Certificate (Valid for 3 years from date of issue)Mark Sheet Certificate (Attested)Fees Payment ReceiptBank Account Details of StudentHostel Certificate (For hostel residents only)Passport Size Photos",
+    "sources_and_references": "[Guideline](https://cmscholarship.goa.gov.in/SchemesDetails.aspx#GaganSCSW)\n[User Manual](https://cmscholarship.goa.gov.in/UserGuid.aspx)\n[Application Notification](https://dip.goa.gov.in/2023/12/13/online-applications-invited-for-centrally-and-state-sponsored-schemes/)",
+    "scheme_name": "Gagan Bharari Shiksha Yojana for SC Students",
+    "slug": "gbsysc",
+    "url": "https://www.myscheme.gov.in/schemes/gbsysc",
+    "state": "Goa",
+    "scraped_at": "2026-06-16T06:28:03.481972Z",
+    "faqs": [
+      {
+        "question": "Are students in private institutions eligible for this scheme?",
+        "answer": "Yes, students in any recognized institution are eligible if they meet the criteria."
+      },
+      {
+        "question": "What happens if there are issues with the submitted application?",
+        "answer": "The school/institution can return the application to the student for necessary corrections and resubmission."
+      },
+      {
+        "question": "How can students track their application status?",
+        "answer": "Students can track their application through the portal's side navigation bar using their Aadhaar Number and Date of Birth."
+      },
+      {
+        "question": "What additional document must hostel residents submit?",
+        "answer": "Hostel residents must submit a Hostel Certificate along with other required documents."
+      },
+      {
+        "question": "How long are the caste and income certificates valid?",
+        "answer": "Both caste and income certificates are valid for 3 years from the date of issue."
+      },
+      {
+        "question": "What documents are required for applying to this scheme?",
+        "answer": "Required documents include Aadhaar Card, Caste Certificate, Income Certificate, Mark Sheet Certificate (Attested), Fees Payment Receipt, Bank Account Details, and Passport Size Photos."
+      },
+      {
+        "question": "What is the additional disability allowance amount and duration?",
+        "answer": "Eligible students receive a disability allowance of ₹750 per month for 10 months during the academic year."
+      },
+      {
+        "question": "Can first-year students apply for this scheme?",
+        "answer": "Yes, first-year students can apply if they are eligible for the Post Matric Scholarship."
+      },
+      {
+        "question": "Is the mark sheet attestation mandatory?",
+        "answer": "Yes, the submitted mark sheet must be attested."
+      },
+      {
+        "question": "Can students receive both hostel allowance and disability allowance?",
+        "answer": "Yes, eligible students can receive both the hostel allowance and disability allowance simultaneously."
+      },
+      {
+        "question": "How many months in a year is the allowance paid?",
+        "answer": "The allowance is paid for 10 months during the academic year."
+      }
+    ]
+  }
+}

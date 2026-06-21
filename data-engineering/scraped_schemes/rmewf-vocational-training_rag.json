@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "scheme_name": "RMEWF-Financial Assistance For Vocational Training Of Widows Of ESM",
+    "slug": "rmewf-vocational-training",
+    "url": "https://www.myscheme.gov.in/schemes/rmewf-vocational-training",
+    "state": "Ministry Of Defence",
+    "scraped_at": "2026-06-19T15:59:02.855609+00:00",
+    "chunk_count": 16,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The “Financial Assistance for Vocational Training of Widows of Ex-Servicemen (ESM)” scheme has been launched by the Department of Ex-Servicemen Welfare, Ministry of Defence, Government of India. The scheme aims to provide financial assistance to widows of ex-servicemen to help them become self-reliant through vocational training. The scheme is implemented by the Kendriya Sainik Board.",
+    "benefits": "Financial AssistanceFor vocational training, AFFDF is provided as a one-time aid of ₹50,000 (max) on successful completion of said vocational training.",
+    "eligibility": "The applicant should be a widow of an ex-serviceman (ESM). The applicant’s spouse should be of rank up to Havildar or equivalent. The applicant should have completed vocational training from a recognized institution. The applicant should have relevant spouse details recorded in the service book of the ESM. The applicant should be recommended by the respective Zila Sainik Board (ZSB) and Rajya Sainik Board (RSB).",
+    "exclusions": "",
+    "application_process": "OnlineApplication Process\nStep 01: The applicant can visit the official website of Kendriya Sainik Board Secretariat (KSBS) [https://ksb.gov.in/](https://ksb.gov.in/)\nStep 02: Click on “Register” which is available on the homepage of the portal.\nStep 03: Fill out the registration form with necessary details and upload the required document\nStep 04: Save the application by clicking on the “Save” button and the saved details and password will be forwarded to the registered mail id.\nStep 05: Click the activation link which is sent to the mail id to login into the KSB portal.\nStep 06: Provide user name, password and verification code and click on the “Login “ button.\nStep 07: Select the scheme name and start filling the new application form by entering the required details.\nStep 08: Copies of the supporting documents duly attested by the respective Zila Sainik Welfare Officer (ZSWO) must be uploaded with the online application. Post-application Process\nStep 01: Once the online application is submitted, ZSWO will scrutinize the online applications and give appointment to the applicant for verification.\nStep 02: After successful verification, ZWSO will recommend the online application and forward the harp copy as well soft copy to Kendriya Sainik Board (KSB) through Rajya Sainik Boards (RSBs) for further processing.\nStep 03: Once the application reaches the Kendriya Sainik Board, the Section-in-charge verify the same and upload the printed list for the approval of JD (Welfare).\nStep 04: Such applications of approval is then moved for sanction of the competent authority in one lot, preferably every quarter. Payment Procedure\nStep 01: After the submitted application has been approved, the same is processed for payment by the Welfare department.\nStep 02: After verifying the service number, name, bankers, IFS Code and account number, the Welfare department forward the batch list to Accounts Section for payment, which make the payment directly via Electronic Clearing System (ECS).",
+    "documents_required": "Complete Service Discharge Certificate/Book. Copy of Widow I-Card. Certificate from institute after completion of training. Certificate from ZSWO that widow after vocational training is gainfully employed. Details of Bank A/c No (in PNB/SBI only) and IFS Code",
+    "sources_and_references": "[Scheme Guidelines](https://ksb.gov.in/vocational-training-of-widows-of-esm.htm)\n[Official Website](https://ksb.gov.in/index.htm)",
+    "scheme_name": "RMEWF-Financial Assistance For Vocational Training Of Widows Of ESM",
+    "slug": "rmewf-vocational-training",
+    "url": "https://www.myscheme.gov.in/schemes/rmewf-vocational-training",
+    "state": "Ministry Of Defence",
+    "scraped_at": "2026-06-19T15:59:02.855609+00:00",
+    "faqs": [
+      {
+        "question": "Who can apply for this scheme?",
+        "answer": "Widows of ex-servicemen of rank up to Havildar or equivalent are eligible to apply."
+      },
+      {
+        "question": "What is the financial assistance amount?",
+        "answer": "A one-time financial assistance of up to ₹50,000 is provided under the scheme."
+      },
+      {
+        "question": "When is the assistance provided?",
+        "answer": "The assistance is provided after successful completion of vocational training."
+      },
+      {
+        "question": "Is the assistance recurring?",
+        "answer": "No, the financial assistance is provided only once as a one-time grant."
+      },
+      {
+        "question": "Is training mandatory?",
+        "answer": "Yes, the applicant must complete vocational training to receive assistance."
+      },
+      {
+        "question": "Where can training be undertaken?",
+        "answer": "Training can be undertaken at ITIs, ZSB/RSB centres, or reputed private institutes."
+      },
+      {
+        "question": "Is employment required after training?",
+        "answer": "Yes, the applicant must be gainfully employed after training, as certified."
+      },
+      {
+        "question": "Is recommendation required?",
+        "answer": "Yes, recommendation from Zila Sainik Board and Rajya Sainik Board is mandatory."
+      },
+      {
+        "question": "How is the payment made?",
+        "answer": "The payment is made directly to the beneficiary’s bank account after approval."
+      },
+      {
+        "question": "Which banks are allowed for payment?",
+        "answer": "Bank accounts in Punjab National Bank or State Bank of India are required."
+      }
+    ]
+  }
+}

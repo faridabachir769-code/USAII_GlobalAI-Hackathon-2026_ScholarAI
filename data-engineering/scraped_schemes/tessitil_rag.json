@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "scheme_name": "Technical Education Scholarship Scheme for ITI Level",
+    "slug": "tessitil",
+    "url": "https://www.myscheme.gov.in/schemes/tessitil",
+    "state": "Himachal Pradesh",
+    "scraped_at": "2026-06-20T07:39:51.758879+00:00",
+    "chunk_count": 15,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The scheme “Technical Education Scholarship Scheme for ITI Level” was started by the Department of Technical Education, Himachal Pradesh. The objective of awarding this scholarship is two-fold, firstly to improve the quality of training by attracting promising trainees belonging to Scheduled Caste, Scheduled Tribe, and Other Backward Classes, who otherwise would not be in a position to pursue training due to financial constraints and secondly to popularize technical training among these categories, so as to make them able to earn their livelihood respectably and honourably.",
+    "benefits": "The scholarships shall be paid at the rate of ₹250 per month per trainee subject to the condition that the corresponding decrease shall be affected in the rate of scholarship if the trainees receive a stipend from any other department of the Government or any organization.",
+    "eligibility": "The applicant should belong to Scheduled Caste (SC), Scheduled Tribe (ST), or Other Backward Class (OBC) as notified by the Himachal Pradesh State Government. The applicant should be a bonafide Himachali. The applicant should be studying in a Government or Government-recognized Industrial Training Institute (I. T. I.) or I. T. I. for Women in Himachal Pradesh. The applicant should be pursuing technical training and require financial assistance to continue the course.",
+    "exclusions": "",
+    "application_process": "Online\nStep 01: The students applying for the scholarship for the first time need to \"Register\" using the icon “New Registration” at the [NSP Portal](https://scholarships.gov.in/https://scholarships.gov.in/) URL - by providing accurate and correct information as per their documents.\nStep 02: After successfully get registration done, students will get their “Student Registration ID”.\nStep 03: Through “Student Registration ID” students will be able to login into the account using the icon “Fresh Application” at NSP Portal.\nStep 04: After successful login to the portal, the welcome page appeared. On clicking the “Application Form” icon, students will be directed to the application screen.\nStep 05: Now, the students may fill out the complete application form and on clicking the “Final Submit” button, the application is finally submitted.\nStep 06: On successful submission of the application, a system-generated registration number is sent to the students which can be used for future reference.",
+    "documents_required": "1. Passport Size Photo2. Aadhaar Card (UID/EID No)3. Himachali Bonafide Certificate4. Previous Year(s) Result Card(s) from Matric onwards5. Latest Bank Statement of the Students Bank Account6. Caste Certificate (Issued by an officer not below the rank of Tehsildar)7. Any other document, as required",
+    "sources_and_references": "[Official Website](https://techedu.hp.gov.in/?q=scholarship)\n[Scheme Guideline](https://techedu.hp.gov.in/sites/default/files/SKM_C224e23071715511.pdf)\n[EPASS Portal](https://hpepass.cgg.gov.in/NewHomePage.do?actionParameter=technicalSchemes#:~:text=Scholarships%20for%20ITI%20Students(SC,100%2F%2D%20p.m.)\n[National Scholarship Portal](https://scholarships.gov.in/)",
+    "scheme_name": "Technical Education Scholarship Scheme for ITI Level",
+    "slug": "tessitil",
+    "url": "https://www.myscheme.gov.in/schemes/tessitil",
+    "state": "Himachal Pradesh",
+    "scraped_at": "2026-06-20T07:39:51.758879+00:00",
+    "faqs": [
+      {
+        "question": "What is the objective of the scheme?",
+        "answer": "The objective of awarding this scholarship is two-fold, firstly to improve the quality of training by attracting promising trainees belonging to Scheduled Caste, Scheduled Tribe, and Other Backward Classes, who otherwise would not be in a position to pursue training due to financial constraints and secondly to popularize technical training among these categories, so as to make them able to earn their livelihood respectably and honourably."
+      },
+      {
+        "question": "Which is the implementing department of this scheme?",
+        "answer": "Department of Technical Education, Vocational and Industrial Training, Himachal Pradesh"
+      },
+      {
+        "question": "Who is eligible to apply under the scheme?",
+        "answer": "The students belonging to the SC/ST/OBC Categories studying in the I. T. Is and I. T. Is for women in Himachal Pradesh, who are bonafide Himachali, and as per categories notified by the State Government shall be eligible for the grant of these scholarships."
+      },
+      {
+        "question": "Is this scholarship scheme only for the students of Himachal Pradesh?",
+        "answer": "Yes, only those students shall be eligible for the award of scholarships who are Bonafide Himachali."
+      },
+      {
+        "question": "What is the benefit of the scheme?",
+        "answer": "The scholarships shall be paid at the rate of ₹250 per month per trainee subject to the condition that the corresponding decrease shall be affected in the rate of scholarship if the trainees receive a stipend from any other department of the Government or any organization."
+      },
+      {
+        "question": "What should be the percentage of attendance to receive the scholarship?",
+        "answer": "A minimum of 80% attendance should be maintained by the trainees during their training to receive the scholarship."
+      },
+      {
+        "question": "For how long a student will receive scholarship?",
+        "answer": "The student will receive the scholarship for entire period of his/her training."
+      },
+      {
+        "question": "Is the distance learning/traning courses permitted under this scheme?",
+        "answer": "No, distance learning/training courses are permitted under this scheme."
+      },
+      {
+        "question": "How to apply for this scholarship?",
+        "answer": "Online submission of the application form can be done through the website of the National Scholarship Portal. https://scholarships.gov.in/"
+      }
+    ]
+  }
+}

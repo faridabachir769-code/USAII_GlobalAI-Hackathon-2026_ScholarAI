@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "scheme_name": "Financial Assistance for Education (HPBOCWWB)",
+    "slug": "fafehpbocwwb",
+    "url": "https://www.myscheme.gov.in/schemes/fafehpbocwwb",
+    "state": "Himachal Pradesh",
+    "scraped_at": "2026-06-20T09:04:47.546692+00:00",
+    "chunk_count": 13,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The \"Financial Assistance for Education Scheme\" has been introduced by the Himachal Pradesh Building and Other Construction Workers Welfare Board (HPBOCWWB) and has been providing annual financial assistance for the education of up to two children of a beneficiary, covering studies from Class I to professional courses such as Medical and Engineering, as well as PhD and research programs.",
+    "benefits": "Primary & Middle School (Class 1-8): ₹8,400 per yearSecondary & Senior Secondary (Class 9-12): ₹12,000 per yearGraduation Level: ₹36,000 per yearPost-Graduation Level: ₹60,000 per yearDiploma Courses: ₹48,000 per yearPolytechnic Diploma: ₹60,000 per yearProfessional / Research Courses: ₹1,20,000 per yearNote: This applies equally to both girls and boys.",
+    "eligibility": "For Registration as a Building/ Construction Worker:The applicant should be a resident of Himachal PradeshThe applicant should be a Building/ Construction Worker.. The applicant should be aged between 18 and 60 years. The worker should have completed at least 90 days of building and other construction work in the last 12 months. The registration of the applicant should have been renewed annually. Eligibility Criteria for Scheme:The parent of the child must be engaged in building or construction work under the Himachal Pradesh Building and Other Construction Workers Welfare Board (HPBOCWWB). The parent of the child should be registered with the Himachal Pradesh Building and Other Construction Workers Welfare Board (HPBOCWWB). The parent's membership with the Himachal Pradesh Welfare Board must be active at the time of application.",
+    "exclusions": "",
+    "application_process": "OfflineOnlineThe Registration Process for Building and Other Construction Workers is as follows:\nStep 1: The interested applicant should visit the Labor Welfare Office (during office hours) and request a hard copy of the prescribed [application form](https://bocw.hp.nic.in/pdf/formno27_A1b.pdf) from the concerned authority.\nStep 2: In the application form, fill in all the mandatory fields, paste a passport-sized photograph (signed across, if required), and attach copies of all the mandatory documents (self-attested, if required).\nStep 3: Submit the duly filled and signed application form along with a wage slip or appointment letter from the employer, verifying 90 days of construction work. If unavailable, a certificate from a local authority (such as a councilor, executive officer, or Panchayat Secretary) can be submitted to verify employment.\nStep 4: After submitting the documents and payment, the worker will receive an acknowledgment receipt confirming their registration. NOTE 1: Ensure that the application is submitted within the prescribed period, if any. NOTE 2: After three years, the worker must visit the office to pay a renewal fee and submit proof of 90 days of work each year to maintain eligibility for benefits. NOTE 3: A one-time registration fee must be paid at the office, and it will be valid for three years.",
+    "documents_required": "Identity Card of the MemberBank Account Details (e.g., Copy of Bank Passbook)Labour CardIdentity proof of student/childReceipt of Hostel Expenditure Age Certificate Any other documents as required",
+    "sources_and_references": "[Guidelines](https://bocw.hp.nic.in/pdf/Kalyanikariyojana2021_Ab1.pdf)\n[Website](https://bocw.hp.nic.in/index.aspx)\n[Labour Registration](https://bocw.hp.nic.in/PublicPages/AddBeneficiary.aspx)",
+    "scheme_name": "Financial Assistance for Education (HPBOCWWB)",
+    "slug": "fafehpbocwwb",
+    "url": "https://www.myscheme.gov.in/schemes/fafehpbocwwb",
+    "state": "Himachal Pradesh",
+    "scraped_at": "2026-06-20T09:04:47.546692+00:00",
+    "faqs": [
+      {
+        "question": "What is the Financial Assistance for Education Scheme?",
+        "answer": "It is a welfare scheme that provides annual financial help for the education of children of registered construction workers."
+      },
+      {
+        "question": "Who has introduced this scheme?",
+        "answer": "The scheme has been introduced by the Himachal Pradesh Building and Other Construction Workers Welfare Board (HPBOCWWB)."
+      },
+      {
+        "question": "How many children are eligible under this scheme?",
+        "answer": "Financial assistance is provided for up to two children of a beneficiary."
+      },
+      {
+        "question": "From which class is assistance available?",
+        "answer": "Assistance is available from Class I onwards."
+      },
+      {
+        "question": "Up to which level of education is assistance provided?",
+        "answer": "The scheme covers education from Class I to professional courses, including Medical, Engineering, and PhD/Research programs."
+      },
+      {
+        "question": "Is there a difference in assistance for boys and girls?",
+        "answer": "No, the same amount of financial assistance is provided for both boys and girls."
+      },
+      {
+        "question": "How much assistance is provided for professional and research courses?",
+        "answer": "Students enrolled in Medical, Engineering, or PhD/Research courses receive ₹1,20,000 per year."
+      }
+    ]
+  }
+}
