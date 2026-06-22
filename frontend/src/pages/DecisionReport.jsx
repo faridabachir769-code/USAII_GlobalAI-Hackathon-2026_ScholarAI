@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowLeft,
@@ -11,13 +12,35 @@ import {
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 import PageHeader from "../components/ui/PageHeader";
+import { ReportSkeleton } from "../components/ui/Skeleton";
 import DashboardLayout from "../layouts/DashboardLayout";
+
+import { generateDecisionReport } from "../services/decision.service";
 
 export default function DecisionReport() {
   const navigate = useNavigate();
   const { state } = useLocation();
 
   const scheme = state?.scheme;
+
+  const [report, setReport] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!scheme) return;
+    setLoading(true);
+    generateDecisionReport({ scheme_id: scheme.id, user_query: "" })
+      .then((data) => {
+        setReport(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError("Failed to load decision report");
+        setLoading(false);
+      });
+  }, [scheme]);
 
   if (!scheme) {
     return (
@@ -39,6 +62,20 @@ export default function DecisionReport() {
       </DashboardLayout>
     );
   }
+
+  if (loading) {
+    return (
+      <DashboardLayout>
+        <main>
+          <div className="mx-auto max-w-6xl px-6 py-8">
+            <ReportSkeleton />
+          </div>
+        </main>
+      </DashboardLayout>
+    );
+  }
+
+  const r = report || {};
 
   return (
     <DashboardLayout>
@@ -68,114 +105,99 @@ export default function DecisionReport() {
             </p>
 
             <div className="mt-8 space-y-6">
-              <div className="flex gap-4">
-                <BadgeCheck className="text-green-600" />
+              {r.eligibility_analysis && (
+                <div className="flex gap-4">
+                  <BadgeCheck className="text-green-600" />
+                  <div>
+                    <h3 className="font-semibold">Eligibility Analysis</h3>
+                    <p className="mt-1 text-slate-500">{r.eligibility_analysis}</p>
+                  </div>
+                </div>
+              )}
 
-                <div>
-                  <h3 className="font-semibold">
-                    Eligibility Analysis
+              {r.expected_benefits && (
+                <div className="flex gap-4">
+                  <TrendingUp className="text-blue-600" />
+                  <div>
+                    <h3 className="font-semibold">Expected Benefits</h3>
+                    <p className="mt-1 text-slate-500">
+                      {typeof r.expected_benefits === "string"
+                        ? r.expected_benefits
+                        : JSON.stringify(r.expected_benefits)}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {scheme.benefits && !r.expected_benefits && (
+                <div className="flex gap-4">
+                  <TrendingUp className="text-blue-600" />
+                  <div>
+                    <h3 className="font-semibold">Benefits</h3>
+                    <p className="mt-1 text-slate-500">
+                      {scheme.benefits.length > 300
+                        ? scheme.benefits.slice(0, 300) + "..."
+                        : scheme.benefits}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {r.risks && (
+                <div className="flex gap-4">
+                  <TriangleAlert className="text-amber-500" />
+                  <div>
+                    <h3 className="font-semibold">Risks</h3>
+                    <p className="mt-1 text-slate-500">{r.risks}</p>
+                  </div>
+                </div>
+              )}
+
+              {r.final_recommendation && (
+                <div className="rounded-xl bg-blue-50 p-5">
+                  <h3 className="font-semibold text-blue-700">
+                    Final Recommendation
                   </h3>
-
-                  <p className="mt-1 text-slate-500">
-                    Based on your profile, you satisfy
-                    the majority of the eligibility
-                    requirements for this scheme.
+                  <p className="mt-2 leading-7 text-slate-600">
+                    {r.final_recommendation}
                   </p>
                 </div>
-              </div>
-
-              <div className="flex gap-4">
-                <TrendingUp className="text-blue-600" />
-
-                <div>
-                  <h3 className="font-semibold">
-                    Expected Benefits
-                  </h3>
-
-                  <p className="mt-1 text-slate-500">
-                    This scheme provides strong
-                    financial support and aligns well
-                    with your educational and career
-                    goals.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <TriangleAlert className="text-amber-500" />
-
-                <div>
-                  <h3 className="font-semibold">
-                    Risks
-                  </h3>
-
-                  <p className="mt-1 text-slate-500">
-                    Ensure all required documents are
-                    complete and submit before the
-                    deadline.
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-xl bg-blue-50 p-5">
-                <h3 className="font-semibold text-blue-700">
-                  Final Recommendation
-                </h3>
-
-                <p className="mt-2 leading-7 text-slate-600">
-                  This scheme is one of the strongest
-                  options available for your profile.
-                  We recommend applying while also
-                  comparing alternative schemes before
-                  making a final decision.
-                </p>
-              </div>
+              )}
             </div>
           </Card>
 
           <Card className="p-6">
-            <h3 className="text-lg font-bold">
-              Summary
-            </h3>
+            <h3 className="text-lg font-bold">Summary</h3>
 
             <div className="mt-6 space-y-5">
-              <div className="flex items-center gap-3">
-                <CircleDollarSign className="text-green-600" />
+              {scheme.amount && (
+                <div className="flex items-center gap-3">
+                  <CircleDollarSign className="text-green-600" />
+                  <div>
+                    <p className="text-sm text-slate-500">Funding</p>
+                    <p className="font-semibold">{scheme.amount}</p>
+                  </div>
+                </div>
+              )}
 
-                <div>
-                  <p className="text-sm text-slate-500">
-                    Funding
-                  </p>
+              {scheme.deadline && (
+                <div className="flex items-center gap-3">
+                  <CalendarDays className="text-blue-600" />
+                  <div>
+                    <p className="text-sm text-slate-500">Deadline</p>
+                    <p className="font-semibold">{scheme.deadline}</p>
+                  </div>
+                </div>
+              )}
 
-                  <p className="font-semibold">
-                    {scheme.amount || "Not specified"}
+              {(r.match_score ?? scheme.match_score) != null && (
+                <div className="rounded-xl bg-green-100 p-5 text-center">
+                  <p className="text-sm text-slate-600">AI Match Score</p>
+                  <p className="mt-2 text-4xl font-bold text-green-700">
+                    {r.match_score ?? scheme.match_score}%
                   </p>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <CalendarDays className="text-blue-600" />
-
-                <div>
-                  <p className="text-sm text-slate-500">
-                    Deadline
-                  </p>
-
-                  <p className="font-semibold">
-                    {scheme.deadline || "Open"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="rounded-xl bg-green-100 p-5 text-center">
-                <p className="text-sm text-slate-600">
-                  AI Match Score
-                </p>
-
-                <p className="mt-2 text-4xl font-bold text-green-700">
-                  {scheme.match_score ?? 95}%
-                </p>
-              </div>
+              )}
 
               <Button
                 className="w-full"

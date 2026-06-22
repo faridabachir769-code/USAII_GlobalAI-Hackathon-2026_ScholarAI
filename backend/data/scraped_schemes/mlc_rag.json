@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "scheme_name": "Mobile Learning Centre (UKBOCWWB)",
+    "slug": "mlc",
+    "url": "https://www.myscheme.gov.in/schemes/mlc",
+    "state": "Uttarakhand",
+    "scraped_at": "2026-06-20T07:34:22.554889+00:00",
+    "chunk_count": 12,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The “Mobile Learning Centre” scheme is implemented by the Uttarakhand Building and Other Construction Workers Welfare Board (UKBOCWWB) under the Labour Department, Government of Uttarakhand. The scheme aims to provide education to the children of registered construction workers at construction sites through Mobile Learning Centre buses, ensuring their better and brighter future.",
+    "benefits": "Under this scheme, mobile learning schools are operated to provide education to the children of construction workers.",
+    "eligibility": "Children of workers registered with the Uttarakhand Building and Other Construction Workers Welfare Board are eligible to avail the benefits of this scheme.",
+    "exclusions": "",
+    "application_process": "OfflineFor securing a bright future for the children of construction site workers, education is provided at construction sites through Mobile Learning Centre buses.",
+    "documents_required": "1. Labour card of the construction worker",
+    "sources_and_references": "[Guidelines (Page No. 33)](https://uk.gov.in/department92/library_file/file-30-01-2025-04-25-16.pdf)\n[Official Website](https://ukbocw.uk.gov.in/)",
+    "scheme_name": "Mobile Learning Centre (UKBOCWWB)",
+    "slug": "mlc",
+    "url": "https://www.myscheme.gov.in/schemes/mlc",
+    "state": "Uttarakhand",
+    "scraped_at": "2026-06-20T07:34:22.554889+00:00",
+    "faqs": [
+      {
+        "question": "Who is eligible for this scheme?",
+        "answer": "Children of workers registered with the Uttarakhand Building and Other Construction Workers Welfare Board are eligible for the scheme."
+      },
+      {
+        "question": "Do the workers need to be registered to avail of this benefit?",
+        "answer": "Yes, only children of construction workers who are registered with the UKBOCWWB can avail of the benefits of this scheme."
+      },
+      {
+        "question": "What is the benefit of providing education at construction sites?",
+        "answer": "Providing education at construction sites ensures that children of workers do not miss out on education due to frequent relocation or lack of access to schools."
+      },
+      {
+        "question": "What is the main objective of the scheme?",
+        "answer": "The primary objective is to provide quality education to children of construction workers at construction sites, ensuring their bright and secure future."
+      },
+      {
+        "question": "Do children need to pay any fee to attend these classes?",
+        "answer": "No."
+      },
+      {
+        "question": "How does this scheme help construction workers’ families?",
+        "answer": "The scheme relieves workers of the worry about their children’s education, ensuring that their children receive quality learning opportunities even at construction sites."
+      }
+    ]
+  }
+}

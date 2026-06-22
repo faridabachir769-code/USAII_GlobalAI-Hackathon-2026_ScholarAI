@@ -1,0 +1,99 @@
+{
+  "metadata": {
+    "scheme_name": "Integrated Scholarship Scheme",
+    "slug": "issmp",
+    "url": "https://www.myscheme.gov.in/schemes/issmp",
+    "state": "Madhya Pradesh",
+    "scraped_at": "2026-06-20T08:00:01.943153+00:00",
+    "chunk_count": 24,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The \"Integrated Scholarship Scheme,\" implemented by the Higher Education Department, Government of Madhya Pradesh, aims to provide financial assistance to meritorious students who are deprived of other scholarships to pursue higher education and training in various fields. The scheme offers scholarships for PhD, M. Phil., Postgraduate (qualification-based and qualification cum instrument-based), and sports, as well as merit-based scholarships for graduates, ranging from ₹300 to ₹600 per month. Eligible students must be natives of Madhya Pradesh, studying in a government college, with a family income not exceeding ₹54,000 per annum from all sources.",
+    "benefits": "The scholarships are provided at the following rates:Sl. No. Type of scholarshipAmount per month Quota1PhD₹600 182M. Phil.\n₹500 143Postgraduate (Merit based only)₹500 734Postgraduate (Merit cum means based)₹500 735Sports₹300226Graduation (Merit based only)₹3001467Graduation (Merit cum means based)₹300146Note: The scholarship is provided for 10 months.",
+    "eligibility": "1. The applicant should be a native of Madhya Pradesh. 2. The applicant should be studying in a government/aided private college. 3. The annual income of parents/guardians of the applicant should not exceed ₹54,000. 4. The other qualifications of the applicant:Ph. D: 55% marks in post-graduation. Postgraduate: 55% marks in graduation. Graduation (qualification cum means): 55% marks in the examination of the Board of Secondary Education. 60% marks in Graduation (qualifying) examination of Board of Secondary Education. Sports: The applicant should be a member of the national sports team in the school team of Madhya Pradesh, or should be a member of the adult team of the state or should have been in any of the first three places in the state level competition.",
+    "exclusions": "",
+    "application_process": "OfflineAdvertisement Issuance: The [Directorate of Higher Education](https://highereducation.mp.gov.in/) issues advertisements inviting applications for the scholarship. Application Review and Selection: Applications received are evaluated and applicants are selected based on the prescribed quota limit. Approval and Disbursement: Upon approval from the Commissioner of Higher Education, the scholarship amount is deposited directly into the bank account of the selected applicant. Note: Selection of new applicants is done on the basis of merit process.",
+    "documents_required": "1. Passport-size Photograph2. Aadhaar card3. Domicile certificate of Madhya Pradesh4. Previous class marksheet5. Income certificate6. Caste certificate (If applicable)7. Samagra ID8. Bank Passbook/bank account details9. Current College Code10. Any other documents as required",
+    "sources_and_references": "[Official Website](https://highereducation.mp.gov.in/?page=k%2F1MNJyDoyS4k1yDLiNa%2BQ%3D%3D&leftid=ZnGWU%2BxYVl5%2BNBOUmwU4dg%3D%3D)\n[Scheme Details (Page No. 127)](https://aiggpa.mp.gov.in/uploads/publication/Social_Protection_Eng.pdf)\n[Scheme Details](https://cmhelpline.mp.gov.in/KnowYourEntitleDetail.aspx? Schemeid=46)",
+    "scheme_name": "Integrated Scholarship Scheme",
+    "slug": "issmp",
+    "url": "https://www.myscheme.gov.in/schemes/issmp",
+    "state": "Madhya Pradesh",
+    "scraped_at": "2026-06-20T08:00:01.943153+00:00",
+    "faqs": [
+      {
+        "question": "Who is eligible for the Scheme?",
+        "answer": "To be eligible, students must be natives of Madhya Pradesh, studying in a government or aided private college, with a family income not exceeding ₹54,000 per annum. Specific academic and sports criteria also apply."
+      },
+      {
+        "question": "What types of scholarships are offered under this scheme?",
+        "answer": "The scheme offers scholarships for Ph. D., M. Phil., Postgraduate (merit-based and merit-cum-means-based), and sports, as well as merit-based scholarships for graduates."
+      },
+      {
+        "question": "How much financial assistance is provided under the Ph. D. scholarship?",
+        "answer": "Ph. D. students receive ₹600 per month for ten months."
+      },
+      {
+        "question": "What is the monthly scholarship amount for M. Phil. students?",
+        "answer": "M. Phil. students are awarded ₹500 per month for ten months."
+      },
+      {
+        "question": "How much do postgraduate students receive under the merit-based scholarship?",
+        "answer": "Postgraduate students under the merit-based scholarship receive ₹500 per month for ten months."
+      },
+      {
+        "question": "What is the scholarship amount for postgraduate students under the merit-cum-means-based category?",
+        "answer": "Postgraduate students under the merit-cum-means-based category also receive ₹500 per month for ten months."
+      },
+      {
+        "question": "How much is the sports scholarship?",
+        "answer": "The sports scholarship provides ₹300 per month for ten months."
+      },
+      {
+        "question": "What is the scholarship amount for graduate students under the merit-based category?",
+        "answer": "Graduate students under the merit-based category receive ₹300 per month for ten months."
+      },
+      {
+        "question": "How much do graduate students under the merit-cum-means-based category receive?",
+        "answer": "Graduate students under the merit-cum-means-based category receive ₹300 per month for ten months."
+      },
+      {
+        "question": "For how many months is the scholarship provided each year?",
+        "answer": "The scholarship is provided for a duration of ten months each year."
+      },
+      {
+        "question": "What are the academic eligibility criteria for Ph. D. applicants?",
+        "answer": "Ph. D. applicants must have secured at least 55% marks in their postgraduate degree."
+      },
+      {
+        "question": "What are the academic eligibility criteria for postgraduate applicants?",
+        "answer": "Postgraduate applicants must have secured at least 55% marks in their graduation degree."
+      },
+      {
+        "question": "What are the eligibility criteria for graduate students under the qualification-cum-means category?",
+        "answer": "Graduate students under this category must have secured at least 55% marks in the examination of the Board of Secondary Education."
+      },
+      {
+        "question": "What are the eligibility criteria for graduate students under the merit-based category?",
+        "answer": "Graduate students under the merit-based category must have secured at least 60% marks in the qualifying examination of the Board of Secondary Education."
+      },
+      {
+        "question": "What are the sports eligibility criteria for the scholarship?",
+        "answer": "Sports applicants must be members of the national sports team in the school team of Madhya Pradesh, or members of the adult team of the state, or must have secured one of the first three places in a state-level competition."
+      },
+      {
+        "question": "How can students apply for the Integrated Scholarship Scheme?",
+        "answer": "Students can apply for the scholarship following the issuance of advertisements by the Directorate of Higher Education. Applications are reviewed and selected based on the prescribed quota limit."
+      },
+      {
+        "question": "How is the scholarship amount disbursed to the selected applicants?",
+        "answer": "Upon approval from the Commissioner of Higher Education, the scholarship amount is deposited directly into the bank account of the selected applicant."
+      },
+      {
+        "question": "Can students from private colleges apply for the Integrated Scholarship Scheme?",
+        "answer": "Yes, students from aided private colleges are eligible to apply for the scholarship."
+      }
+    ]
+  }
+}

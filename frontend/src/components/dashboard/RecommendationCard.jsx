@@ -32,9 +32,11 @@ export default function RecommendationCard({ scheme }) {
           />
         </div>
 
-        <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
-          {scheme.match_score ?? 95}% Match
-        </span>
+        {scheme.match_score != null && (
+          <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+            {scheme.match_score}% Match
+          </span>
+        )}
       </div>
 
       <h2 className="mt-5 text-xl font-bold text-slate-900 line-clamp-2">
@@ -57,28 +59,19 @@ export default function RecommendationCard({ scheme }) {
           </span>
         </div>
 
-        <div className="flex items-center gap-3 text-sm text-slate-600">
-          <BadgeDollarSign
-            size={18}
-            className="text-blue-600"
-          />
+        {scheme.amount && (
+          <div className="flex items-center gap-3 text-sm text-slate-600">
+            <BadgeDollarSign size={18} className="text-blue-600" />
+            <span>{scheme.amount}</span>
+          </div>
+        )}
 
-          <span>
-            {scheme.amount || "Not specified"}
-          </span>
-        </div>
-
-        <div className="flex items-center gap-3 text-sm text-slate-600">
-          <CalendarDays
-            size={18}
-            className="text-blue-600"
-          />
-
-          <span>
-            Deadline:{" "}
-            {scheme.deadline || "Open"}
-          </span>
-        </div>
+        {scheme.deadline && (
+          <div className="flex items-center gap-3 text-sm text-slate-600">
+            <CalendarDays size={18} className="text-blue-600" />
+            <span>Deadline: {scheme.deadline}</span>
+          </div>
+        )}
 
         <div className="flex items-center gap-3 text-sm text-slate-600">
           <CheckCircle2

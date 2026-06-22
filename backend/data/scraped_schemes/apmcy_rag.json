@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "scheme_name": "Alpasankhyak Post-Maitrik Chhaatravrtti Yojana",
+    "slug": "apmcy",
+    "url": "https://www.myscheme.gov.in/schemes/apmcy",
+    "state": "Madhya Pradesh",
+    "scraped_at": "2026-06-19T15:36:38.811129+00:00",
+    "chunk_count": 16,
+    "version": "2.0.0"
+  },
+  "raw_data": {
+    "details": "The Alpasankhyak Post-Matric Scholarship Scheme under the Higher Education Department of the Madhya Pradesh goverment provides financial assistance to students from minority communities in Madhya Pradesh pursuing post-secondary education. This scheme aims to alleviate the financial burden on economically disadvantaged minority students, enabling them to access quality education and pursue higher studies. By offering scholarships for tuition fees, maintenance allowances, and other educational expenses, it seeks to promote inclusive growth and empower minority communities through education.",
+    "benefits": "Tuition fee of ₹3,000 per year for graduate and postgraduate students. Maintenance allowance of ₹570 per month for undergraduate and postgraduate hostel students. Maintenance allowance of ₹300 per month for non-hostel studentsMaintenance allowance M. Phil. And Ph. D.\n₹1,200 per month to hostel students. Maintenance allowance of ₹550 per month for non-hostel studentsMaintenance allowance will be payable for 10 months.",
+    "eligibility": "The applicant should be a native of the minority category of Madhya Pradesh. The total annual income of the applicant's parents and guardian should not exceed ₹2,00,000. Not less than 50 percent marks in the last qualifying examination.",
+    "exclusions": "",
+    "application_process": "OnlineRegistrationStep1: Go to the official website of \"[The National Scholarship Portal](https://scholarships.gov.in/)\" (NSP) using a web browser. Step2: Look for the option that says \"[New Registration](https://scholarships.gov.in/registrations/#/registration-page)\" on the homepage and click on it. Step3: Read the registration guidelines carefully before proceeding. then click Continue. Step4:Now Select your Aadhaar Category - Enter Mobile Number - Enter OTP - Enter Captcha Code, click VerifyStep5: Fill in the required details accurately in the registration form. This typically includes personal information such as - Scholarship Category - State - Name - Date of birth - Gender - Contact details, etc. Step6:Click submit Register and you get your Student application ID. ApplyStep1: Go to the official website of \"[the National Scholarship Portal](https://scholarships.gov.in/)\" (NSP) using a web browser. Step2: click on Login [\"Fresh Application\"](https://scholarships.gov.in/fresh/loginPage)Step3: After that enter you - Application ID. - Password - CaptchaStep4: Click Login",
+    "documents_required": "Aadhar card. Bank account statement. Mark sheet. Address proof.proof of income. Passport-size photograph.mobile number.",
+    "sources_and_references": "[Guidelines](https://highereducation.mp.gov.in/?page=SF2Fyv4OVHlghtRd63MGiQ%3D%3D&leftid=ZnGWU%2BxYVl5%2BNBOUmwU4dg%3D%3D)\n[Registration](https://scholarships.gov.in/registrations/#/)\n[Login](https://scholarships.gov.in/fresh/loginPage)",
+    "scheme_name": "Alpasankhyak Post-Maitrik Chhaatravrtti Yojana",
+    "slug": "apmcy",
+    "url": "https://www.myscheme.gov.in/schemes/apmcy",
+    "state": "Madhya Pradesh",
+    "scraped_at": "2026-06-19T15:36:38.811129+00:00",
+    "faqs": [
+      {
+        "question": "What is the Alpasankhyak Post-Maitrik Chhaatravrtti Yojana?",
+        "answer": "It is a scholarship scheme for minority students pursuing post-secondary education."
+      },
+      {
+        "question": "What is the purpose of this scheme?",
+        "answer": "Its purpose is to provide financial assistance to minority students to pursue higher education."
+      },
+      {
+        "question": "What types of financial support does the scheme offer?",
+        "answer": "It offers maintenance allowances and other educational expenses coverage."
+      },
+      {
+        "question": "How much is the maintenance allowance for undergraduate and postgraduate hostel students?",
+        "answer": "It is ₹570 per month for undergraduate and postgraduate hostel students."
+      },
+      {
+        "question": "How much is the maintenance allowance for non-hostel undergraduate and postgraduate students?",
+        "answer": "It is ₹300 per month for non-hostel undergraduate and postgraduate students."
+      },
+      {
+        "question": "What is the maintenance allowance for M. Phil. and Ph. D. hostel students?",
+        "answer": "It is ₹1200 per month for M. Phil. and Ph. D. hostel students."
+      },
+      {
+        "question": "How much is the maintenance allowance for M. Phil. and Ph. D. non-hostel students?",
+        "answer": "It is ₹550 per month for M. Phil. and Ph. D. non-hostel students."
+      },
+      {
+        "question": "Is there any additional financial assistance provided under the scheme?",
+        "answer": "Apart from maintenance allowances, the scheme may cover tuition fees and other incidental expenses."
+      },
+      {
+        "question": "What documents are required during the application process?",
+        "answer": "Aadhar card.\nBank account statement.\nMark sheet.\nAddress proof.\nproof of income.\nproof of age.\nPassport-size photograph.\nmobile number."
+      },
+      {
+        "question": "Can i apply offline?",
+        "answer": "According to the guidelines, the form can be filled out only online."
+      }
+    ]
+  }
+}
