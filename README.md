@@ -8,10 +8,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.13+-blue?logo=python" alt="Python">
-  <img src="https://img.shields.io/badge/FastAPI-0.104+-00a393?logo=fastapi" alt="FastAPI">
-  <img src="https://img.shields.io/badge/SQLAlchemy-2.0+-red" alt="SQLAlchemy">
-  <img src="https://img.shields.io/badge/OpenAI-GPT--4-412991?logo=openai" alt="OpenAI">
+  <img src="https://img.shields.io/badge/FastAPI-0.110+-00a393?logo=fastapi" alt="FastAPI">
+  <img src="https://img.shields.io/badge/React-19-61dafb?logo=react" alt="React">
+  <img src="https://img.shields.io/badge/LangGraph-1.2+-orange" alt="LangGraph">
   <img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ecf8e?logo=supabase" alt="Supabase">
+  <img src="https://img.shields.io/badge/pgvector-0.8+-blueviolet" alt="pgvector">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
 </p>
 
@@ -19,15 +20,14 @@
 
 ## 🚀 Overview
 
-**ScholarAI** is an intelligent backend platform that helps citizens discover, compare, and apply for government schemes tailored to their unique profiles. Using a combination of **rule-based eligibility filtering**, **vector similarity search (RAG)**, and **LLM-powered analysis**, ScholarAI bridges the gap between citizens and the welfare schemes they qualify for.
+**ScholarAI** is an AI-powered platform that helps citizens discover, compare, and apply for government schemes tailored to their unique profiles. It combines a **LangGraph agent pipeline**, **pgvector RAG search**, and a **local LLM (Qwen2.5:3B)** to analyze 1000+ Indian government schemes across all states and ministries.
 
 ### Why ScholarAI?
 
-- **Hundreds of schemes**, scattered across departments, states, and categories — citizens don't know what they're eligible for.
-- **Complex eligibility criteria** — income limits, age restrictions, state-specific rules, category reservations.
-- **No unified comparison tool** — users can't easily weigh options side by side.
-
-ScholarAI solves all of this with a clean, API-first approach.
+- **1000+ schemes** scraped from central & state government portals
+- **Complex eligibility criteria** — income, category, state, gender, education level
+- **AI-powered comparison** — LLM generates structured analysis side-by-side
+- **What-if simulations** — tweak your profile and see eligibility change in real time
 
 ---
 
@@ -35,67 +35,51 @@ ScholarAI solves all of this with a clean, API-first approach.
 
 | Feature | Description |
 |---|---|
-| **🔍 Scheme Discovery** | RAG-based vector search finds schemes semantically related to user profiles |
-| **✅ Eligibility Check** | Rule-based filtering (state, age, income, category) with detailed reasoning |
-| **⚖️ Smart Comparison** | Compare 2+ schemes side-by-side with LLM-generated analysis |
-| **📊 Decision Reports** | AI-powered ranking with weighted scoring, tradeoffs, and recommendations |
-| **👤 Profile Management** | CRUD for user profiles with full validation |
-| **🔌 Supabase Ready** | Built for PostgreSQL on Supabase with connection pooler support |
+| **🔍 RAG Search** | pgvector hybrid search (vector + trigram + full-text) on scheme embeddings |
+| **✅ Eligibility Engine** | Rule-based filtering + LLM income verification + state guard |
+| **⚖️ Smart Comparison** | LLM-scored comparison across 4 dimensions (eligibility, benefit, goal, complexity) |
+| **📊 Decision Reports** | AI-written recommendation with key strengths, drawbacks, confidence score |
+| **🔄 What-If Simulator** | Change income/education/category and see eligibility re-calculated |
+| **🤖 LangGraph Pipeline** | 11-node agent workflow: context → plan → eligibility → retrieve → verify → compare → decide → explain |
+| **👤 Profile Management** | Persistent profiles with auto-extraction from chat |
+| **📄 Document Upload** | Parse Aadhaar/income certificates to auto-fill profile |
+| **📺 YouTube Tutorials** | Fetches relevant scheme tutorial videos |
 
 ---
 
 ## 🧠 Architecture
 
 ```
-┌──────────────┐     ┌─────────────────────────────────────────────┐
-│   Frontend   │     │              ScholarAI API                  │
-│  (Any HTTP)  │────▶│                                             │
-└──────────────┘     │  ┌──────────┐  ┌────────────┐  ┌─────────┐ │
-                     │  │ Profile  │  │ Eligibility│  │Decision │ │
-                     │  │  Routes  │  │  Routes    │  │ Report  │ │
-                     │  └────┬─────┘  └──────┬─────┘  └────┬────┘ │
-                     │       │               │              │      │
-                     │  ┌────▼───────────────▼──────────────▼────┐ │
-                     │  │          Recommendation Pipeline       │ │
-                     │  │                                        │ │
-                     │  │  ┌─────────┐  ┌──────────┐  ┌───────┐ │ │
-                     │  │  │Retriever│─▶│Eligibility│─▶│Decision│ │ │
-                     │  │  │  (RAG)  │  │  Service  │  │ Engine│ │ │
-                     │  │  └────┬────┘  └──────────┘  └───┬───┘ │ │
-                     │  │       │                          │     │ │
-                     │  │  ┌────▼──────────────────────────▼───┐ │ │
-                     │  │  │     LLM Analysis Layer           │ │ │
-                     │  │  │  (Comparison + Explanation)      │ │ │
-                     │  │  └──────────────────────────────────┘ │ │
-                     │  └───────────────────────────────────────┘ │
-                     │                    │                       │
-                     │  ┌─────────────────▼───────────────────┐  │
-                     │  │          Database (SQL/PostgreSQL)   │  │
-                     │  │  profiles │ schemes │ comparisons    │  │
-                     │  └─────────────────────────────────────┘  │
-                     └────────────────────────────────────────────┘
-```
-
-### System Flow
-
-```mermaid
-flowchart LR
-    A[User Profile] --> B[RAG Retriever]
-    B --> C[Vector Search]
-    C --> D[Eligibility Rules]
-
-    D --> E[Decision Engine]
-    E --> F[LLM Analysis]
-    F --> G[Comparison Report]
-
-    D --> H[Eligible Schemes]
-    E --> I[Ranked Results]
-    F --> J[AI Explanation]
-
-    G --> K[Final Response]
-    H --> K
-    I --> K
-    J --> K
+┌──────────────┐     ┌─────────────────────────────────────────────────┐
+│   Frontend   │     │              ScholarAI Backend                  │
+│  (React 19)  │────▶│                                                 │
+│  Vite +      │     │  ┌──────────────────────────────────────────┐  │
+│  Tailwind 4  │     │  │       LangGraph Agent Pipeline           │  │
+└──────────────┘     │  │                                          │  │
+                     │  │  1. context_agent       (intent + prof)  │  │
+                     │  │  2. question_planner    (missing fields)  │  │
+                     │  │  3. eligibility_agent   (rule filter)     │  │
+                     │  │  4. llm_income_verifier (LLM re-check)   │  │
+                     │  │  5. retrieval_agent     (vector search)   │  │
+                     │  │  6. relevance_verifier  (LLM verify)     │  │
+                     │  │  7. comparison_agent    (LLM compare)    │  │
+                     │  │  8. decision_advisor    (LLM recommend)  │  │
+                     │  │  9. action_planner      (steps)          │  │
+                     │  │  10. explanation_agent  (fallback)       │  │
+                     │  │  11. responsible_ai     (disclaimer)     │  │
+                     │  └──────────────────────────────────────────┘  │
+                     │                    │                           │
+                     │  ┌─────────────────▼───────────────────────┐   │
+                     │  │  3-Layer Cache (Memory → Redis → DB)    │   │
+                     │  └─────────────────────────────────────────┘   │
+                     │                    │                           │
+                     │  ┌─────────────────▼───────────────────────┐   │
+                     │  │  Database (PostgreSQL + pgvector)        │   │
+                     │  │  schemes │ rules │ faq │ embeddings     │   │
+                     │  │  profiles │ chat_history │ llm_jobs     │   │
+                     │  │  + pgmq queues + pg_cron + pg_graphql   │   │
+                     │  └─────────────────────────────────────────┘   │
+                     └─────────────────────────────────────────────────┘
 ```
 
 ---
@@ -103,48 +87,68 @@ flowchart LR
 ## 🗂️ Project Structure
 
 ```
-backend/
-├── app/
-│   ├── ai/                          # AI/LLM layer
-│   │   ├── llm_service.py           # OpenAI GPT wrapper
-│   │   ├── comparison_analyzer.py   # Scheme comparison via LLM
-│   │   └── decision_engine.py       # Weighted scoring & ranking
-│   │
-│   ├── api/                         # FastAPI route handlers
-│   │   ├── profiles.py              # CRUD for user profiles
-│   │   ├── eligibility.py           # Eligibility check endpoint
-│   │   ├── comparison.py            # Scheme comparison endpoint
-│   │   ├── decision_report.py       # Decision report endpoint
-│   │   └── schemas.py               # Pydantic request/response models
-│   │
-│   ├── core/                        # Core configuration
-│   │   ├── config.py                # Settings via Pydantic (env vars)
-│   │   └── logger.py                # Centralized logging
-│   │
-│   ├── db/                          # Database layer
-│   │   ├── base.py                  # Engine, session, init_db()
-│   │   └── models.py                # SQLAlchemy ORM models
-│   │
-│   ├── pipeline/                    # Orchestration
-│   │   └── recommendation.py        # End-to-end recommendation pipeline
-│   │
-│   ├── rag/                         # Retrieval-Augmented Generation
-│   │   ├── embedding.py             # OpenAI embedding generation
-│   │   ├── vector_search.py         # pgvector similarity search
-│   │   └── retriever.py             # Orchestrates embedding + search
-│   │
-│   ├── rules/                       # Rule definitions (extensible)
-│   │   └── __init__.py
-│   │
-│   └── services/                    # Business logic
-│       ├── profile_service.py       # Profile CRUD operations
-│       ├── scheme_service.py        # Scheme data access
-│       ├── eligibility_service.py   # Rule-based eligibility filtering
-│       └── recommendation_service.py# Orchestrates comparisons & reports
+├── backend/                        # FastAPI backend
+│   ├── app/
+│   │   ├── main.py                 # FastAPI entry point, routes, startup
+│   │   ├── config.py               # Settings via env vars
+│   │   ├── database.py             # SQLAlchemy models + init_db
+│   │   ├── vector_store.py         # pgvector + hybrid search + embeddings
+│   │   ├── cache.py                # 3-layer cache (mem → Redis → pgmq)
+│   │   ├── text_preprocessor.py    # Text cleaning for scraped data
+│   │   ├── agents/                 # LangGraph pipeline (11 nodes)
+│   │   │   ├── graph.py            # StateGraph definition
+│   │   │   ├── nodes.py            # All agent implementations
+│   │   │   ├── state.py            # AgentState TypedDict
+│   │   │   └── schemas.py          # Pydantic LLM I/O schemas
+│   │   ├── services/               # Business logic
+│   │   │   ├── ai_service.py       # Local LLM (Qwen2.5) wrapper
+│   │   │   ├── scoring_service.py  # Hybrid scoring engine
+│   │   │   ├── eligibility_service.py
+│   │   │   ├── recommendation_service.py
+│   │   │   ├── profile_service.py
+│   │   │   ├── scheme_service.py
+│   │   │   ├── doc_intelligence.py # Document upload/Aadhaar parsing
+│   │   │   └── youtube_service.py
+│   │   ├── routes/
+│   │   │   └── integration.py      # All v2 API endpoints
+│   │   ├── ai/                     # v1 AI layer (legacy)
+│   │   ├── api/                    # v1 routes (legacy)
+│   │   ├── rag/                    # v1 RAG (legacy)
+│   │   ├── pipeline/               # v1 pipeline (legacy)
+│   │   ├── core/                   # v1 config (legacy)
+│   │   └── db/                     # v1 DB (legacy)
+│   ├── scripts/                    # SQL migrations
+│   ├── tests/
+│   ├── requirements.txt
+│   ├── .env                        # Environment config
+│   └── supabase/                   # Local Supabase config
 │
-├── run.py                           # Entry point (uvicorn)
-├── requirements.txt                 # Dependencies
-└── .env                             # Configuration (not committed)
+├── frontend/                       # React + Vite + Tailwind
+│   ├── src/
+│   │   ├── pages/                  # Login, Register, ProfileSetup,
+│   │   │                           # Dashboard, Comparison, DecisionReport,
+│   │   │                           # WhatIfSimulator
+│   │   ├── components/             # UI components, chat, comparison, decision
+│   │   ├── services/               # auth, chat, scheme, profile, decision APIs
+│   │   ├── hooks/                  # useSchemes, useAuth
+│   │   ├── context/                # AuthContext
+│   │   ├── layouts/                # AuthLayout, DashboardLayout
+│   │   └── lib/                    # Supabase client, Axios instance
+│   ├── .env
+│   └── package.json
+│
+├── data-engineering/               # Scraping & embedding pipeline
+│   ├── scraped_schemes/            # ~1000 raw scheme JSON files
+│   ├── normalizer.py / v2          # Normalize raw → DB schema
+│   ├── batch_normalizer.py
+│   ├── generate_embeddings.py      # gte-small embeddings (384d)
+│   ├── bulk_insert.py              # Insert to Supabase
+│   └── supabase/                   # Supabase project config
+│
+├── start_all.sh / .bat             # Launch backend + frontend
+├── run_backend.sh / .bat
+├── run_frontend.sh / .bat
+└── requirements.txt                # Root-level legacy deps
 ```
 
 ---
@@ -153,24 +157,29 @@ backend/
 
 | Layer | Technology |
 |---|---|
-| **Framework** | FastAPI (Python 3.13+) |
-| **ORM** | SQLAlchemy 2.0 |
-| **Database** | SQLite (dev) / PostgreSQL + pgvector (production) |
-| **Hosting** | Supabase (PostgreSQL + connection pooling) |
-| **AI / LLM** | OpenAI GPT-4, text-embedding-3-small |
-| **Vector Search** | pgvector (cosine distance) |
-| **Validation** | Pydantic v2 |
-| **Server** | Uvicorn with hot-reload |
+| **Backend** | FastAPI, Uvicorn, SQLAlchemy 2.0 |
+| **Frontend** | React 19, Vite 8, Tailwind CSS 4, React Router 7 |
+| **Database** | PostgreSQL 17 + pgvector 0.8 (via Supabase local) |
+| **Vector Search** | pgvector (cosine) + pg_trgm + tsvector hybrid search |
+| **AI Pipeline** | LangGraph 1.2 (11-node StateGraph) |
+| **LLM** | Qwen2.5:3B (local, GGUF Q4_K_M) via OpenAI-compatible API |
+| **Embeddings** | thenlper/gte-small (384-dim, sentence-transformers) |
+| **Auth** | Supabase GoTrue (local) |
+| **Cache** | In-memory → Redis → PostgreSQL (3-tier) |
+| **Async Jobs** | pgmq (PostgreSQL message queue) |
+| **Analytics** | pg_cron, Prometheus metrics |
+| **Container** | Docker (Supabase stack: 11 containers) |
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Start (Fresh Machine)
 
 ### Prerequisites
 
 - Python 3.13+
-- pip
-- OpenAI API key (for LLM features)
+- Node.js 22+
+- Docker Desktop
+- 8 GB+ RAM (for local LLM + Supabase)
 
 ### 1. Clone & Install
 
@@ -178,282 +187,270 @@ backend/
 git clone <repo-url>
 cd ScholarAI
 
-# Install dependencies
+# Backend dependencies
 pip install -r backend/requirements.txt
+
+# Frontend dependencies
+cd frontend && npm install && cd ..
 ```
 
-### 2. Configure Environment
-
-Create `backend/.env`:
-
-```env
-# Database — SQLite for local dev (default)
-DATABASE_URL=sqlite:///./test.db
-
-# Or Supabase PostgreSQL production
-# DATABASE_URL=postgresql://postgres:password@db.<ref>.supabase.co:5432/postgres
-
-# Server
-SERVER_HOST=0.0.0.0
-SERVER_PORT=8000
-DEBUG=True
-
-# OpenAI (required for AI features)
-OPENAI_API_KEY=sk-your-key-here
-```
-
-### 3. Run the Server
+### 2. Start Supabase Local (Database)
 
 ```bash
 cd backend
-python run.py
+
+# Start all Supabase services (PostgreSQL + pgvector + auth + storage)
+supabase start
 ```
 
-The API will be available at **http://localhost:8000**  
-Interactive docs at **http://localhost:8000/docs** (Swagger UI)
+This starts 11 Docker containers including PostgreSQL 17 with pgvector, Kong (API gateway), GoTrue (auth), Storage, Realtime, and more.
+
+### 3. Configure Environment
+
+Copy the template:
+
+```bash
+cp backend/.env.template backend/.env
+```
+
+Edit `backend/.env`:
+```env
+# Local LLM endpoint (start separately, see step 5)
+LOCAL_LLM_URL=http://localhost:12434/engines/v1
+LOCAL_LLM_MODEL=docker.io/ai/qwen2.5:3B-Q4_K_M
+
+# Supabase local PostgreSQL (auto-configured by supabase start)
+DATABASE_URL=postgresql://postgres:postgres@localhost:54322/postgres
+SUPABASE_URL=http://127.0.0.1:54321
+SUPABASE_KEY=sb_publishable_<your-local-key>
+
+# Embedding model (downloads on first run)
+HF_TOKEN=hf_<your-huggingface-token>
+EMBEDDING_DIM=384
+EMBEDDING_MODEL=thenlper/gte-small
+```
+
+For the frontend, edit `frontend/.env`:
+```env
+VITE_SUPABASE_URL=http://127.0.0.1:54321
+VITE_SUPABASE_ANON_KEY=sb_publishable_<your-local-key>
+VITE_API_URL=http://localhost:8000/api
+```
+
+### 4. Run Database Migrations & Seed Data
+
+```bash
+# Run the unified migration (creates tables, indexes, functions, pgmq queues)
+psql "$DATABASE_URL" -f backend/scripts/001_unified_supabase_migration.sql
+
+# Restore the 1000+ scraped schemes from dump
+psql "$DATABASE_URL" < backend/local_data_dump.sql
+```
+
+Or let the app auto-initialize (creates tables + seeds 2 sample schemes on first startup):
+```bash
+cd backend && python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+```
+
+### 5. Start Local LLM (Qwen2.5:3B)
+
+You need a local LLM server (LocalAI, Ollama, or llama.cpp) serving an OpenAI-compatible API:
+
+```bash
+# Example with LocalAI:
+docker run -p 12434:8080 \
+  -v $PWD/models:/build/models \
+  localai/localai:latest
+# Then download Qwen2.5:3B-Q4_K_M.gguf into models/
+```
+
+### 6. Start the Application
+
+**Option A — Launch scripts:**
+```bash
+./start_all.sh
+```
+
+**Option B — Manual:**
+```bash
+# Terminal 1: Backend
+cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# Terminal 2: Frontend
+cd frontend && npm run dev
+```
+
+### 7. Verify
+
+```
+Backend:   http://localhost:8000/api/health  → {"status":"healthy"}
+Frontend:  http://localhost:5173              → Login page
+API Docs:  http://localhost:8000/docs         → Swagger UI
+```
 
 ---
 
 ## 📡 API Endpoints
 
-### 👤 Profile Management
-
+### Profiles
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/api/profile` | Create a new profile |
-| `GET` | `/api/profile/{id}` | Get profile by ID |
-| `PUT` | `/api/profile/{id}` | Update profile |
-| `GET` | `/api/profiles` | List all profiles (paginated) |
+| `GET` | `/api/profile` | Get current profile |
+| `POST` | `/api/profile` | Create profile |
+| `PUT` | `/api/profile` | Update profile |
 
-### ✅ Eligibility
-
+### Schemes
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/api/eligibility` | Check which schemes a profile is eligible for |
+| `GET` | `/api/schemes` | List/search schemes (supports `?search=&state=&category=`) |
+| `GET` | `/api/schemes/recommended` | Top 10 eligible schemes for profile |
+| `GET` | `/api/schemes/{id}` | Scheme details + rules + FAQs |
+| `POST` | `/api/schemes/search` | Hybrid search (vector + trigram + full-text) |
+| `POST` | `/api/schemes/compare` | LLM-powered comparison (up to 10) |
+| `POST` | `/api/schemes/simulate` | What-if eligibility simulation |
 
-### ⚖️ Comparison
-
+### Chat & AI
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/compare` | Compare 2+ schemes for a profile (AI-powered) |
+| `POST` | `/api/chat` | LangGraph pipeline (context → eligibility → retrieve → compare → decide → explain) |
+| `GET` | `/api/chat/history` | Get chat history for session |
 
-### 📊 Decision Report
-
+### Other
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/decision-report` | Generate comprehensive decision report with ranking |
-
-### 🏥 Health
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | API root info |
-| `GET` | `/health` | Health check |
+| `POST` | `/api/decision-report` | Generate decision report for a scheme |
+| `POST` | `/api/document-upload` | Upload Aadhaar/income certificate |
+| `POST` | `/api/feedback` | Submit feedback on recommendations |
+| `GET` | `/api/health` | Health check |
+| `GET` | `/metrics` | Prometheus metrics |
 
 ---
 
 ## 📋 Example Usage
 
-### Create a Profile
-
 ```bash
-curl -X POST http://localhost:8000/api/profile \
+# Health check
+curl http://localhost:8000/api/health
+
+# Get recommended schemes for anonymous user
+curl http://localhost:8000/api/schemes/recommended
+
+# Create/update profile
+curl -X PUT http://localhost:8000/api/profile \
   -H "Content-Type: application/json" \
-  -d '{
-    "name": "Rajesh Kumar",
-    "age": 25,
-    "state": "Karnataka",
-    "income": 150000,
-    "occupation": "Student",
-    "education_level": "Bachelor'\''s",
-    "category": "General",
-    "goals": "Education funding for higher studies"
-  }'
-```
+  -d '{"full_name":"Rajesh","state":"Karnataka","annual_income":250000,"category":"OBC","education_level":"Graduate","student":true}'
 
-### Check Eligibility
-
-```bash
-curl -X POST http://localhost:8000/api/eligibility \
+# Chat with AI (triggers LangGraph pipeline)
+curl -X POST http://localhost:8000/api/chat \
   -H "Content-Type: application/json" \
-  -d '{"profile_id": "<profile-uuid>"}'
-```
+  -H "session-id: test-123" \
+  -d '{"query":"I am an OBC student from Karnataka looking for scholarships"}'
 
-### Compare Schemes
-
-```bash
-curl -X POST http://localhost:8000/compare \
+# Compare schemes
+curl -X POST http://localhost:8000/api/schemes/compare \
   -H "Content-Type: application/json" \
-  -d '{
-    "profile_id": "<profile-uuid>",
-    "scheme_ids": ["<scheme-uuid-1>", "<scheme-uuid-2>"]
-  }'
+  -d '{"scheme_ids":[1,2,3]}'
 ```
 
 ---
 
-## 🔌 Supabase Setup (Production)
+## 🔌 Requirements Per Machine
 
-1. **Create a Supabase project** at [supabase.com](https://supabase.com)
-2. **Get your connection string** from Project Settings → Database
-3. **Enable pgvector** (if using vector search):
-   ```sql
-   CREATE EXTENSION IF NOT EXISTS vector;
-   ```
-4. **Set DATABASE_URL** in `.env`:
-   ```env
-   # Direct connection (IPv6 required)
-   DATABASE_URL=postgresql://postgres:password@db.<ref>.supabase.co:5432/postgres
-
-   # Or via connection pooler (IPv4)
-   DATABASE_URL=postgresql://postgres.<ref>:password@aws-0-eu-central-1.pooler.supabase.com:5432/postgres
-   ```
+| Component | Required | Notes |
+|---|---|---|
+| Docker Desktop | ✅ Yes | Runs 11 Supabase containers (PostgreSQL + pgvector + auth + storage) |
+| Python 3.13+ | ✅ Yes | With pip |
+| Node.js 22+ | ✅ Yes | With npm |
+| Local LLM server | ✅ Yes | Qwen2.5:3B on port 12434 (LocalAI / Ollama / llama.cpp) |
+| HuggingFace token | ✅ Yes | To download `thenlper/gte-small` embedding model |
+| RAM | 8 GB+ | ~4 GB for Supabase + ~2 GB for LLM + ~1 GB for app |
+| Disk | 10 GB+ | ~3 GB for Docker images + ~2 GB for LLM model + ~1 GB for embeddings |
+| Internet | First run only | For Docker pulls, pip installs, model downloads |
 
 ---
 
 ## 🧪 How It Works
 
+### LangGraph Agent Pipeline (11 nodes)
+
 ```mermaid
-sequenceDiagram
-    participant User
-    participant API as ScholarAI API
-    participant RAG as RAG Retriever
-    participant Rules as Eligibility Service
-    participant Engine as Decision Engine
-    participant LLM as AI Layer
-    participant DB as Database
-
-    User->>API: POST /eligibility (profile_id)
-    API->>RAG: Retrieve similar schemes
-    RAG->>DB: Fetch profile + schemes
-    RAG->>RAG: Generate profile embedding
-    RAG->>RAG: Vector similarity search
-    RAG-->>API: Schemes with scores
-
-    API->>Rules: Filter by eligibility rules
-    Rules->>Rules: Check state, age, income, category
-    Rules-->>API: Eligible schemes
-
-    alt Comparison Requested
-        API->>Engine: Score & rank schemes
-        Engine-->>API: Ranked results with breakdown
-        API->>LLM: Generate comparison analysis
-        LLM-->>API: Structured comparison text
-    end
-
-    API-->>User: Eligibility / Comparison / Report
+flowchart LR
+    A[User Query] --> B[context_agent]
+    B --> C[question_planner]
+    C --> D[eligibility_agent]
+    D --> E[llm_income_verifier]
+    E --> F[retrieval_agent]
+    F --> G{relevance_verifier}
+    G -- low score --> F
+    G -- high score --> H[comparison_agent]
+    H --> I[decision_advisor]
+    I --> J[action_planner]
+    J --> K[explanation_agent]
+    K --> L[responsible_ai_layer]
+    L --> M[Response]
 ```
 
-### Key Components
+### Scoring System
 
-- **Retriever** — Creates a text embedding of the user profile using OpenAI's `text-embedding-3-small`, then performs a pgvector cosine similarity search against all scheme embeddings.
-- **Eligibility Service** — Applies deterministic rules: state availability, age range, income threshold, and category matching. Returns clear eligibility reasons for each scheme.
-- **Decision Engine** — Scores each eligible scheme across four weighted dimensions:
-  - `eligibility_score` (40%) — How well the scheme's criteria match the profile
-  - `benefit_score` (25%) — Quality and relevance of benefits
-  - `goal_alignment_score` (25%) — How well the scheme aligns with user goals
-  - `complexity_score` (10%) — Inverse of application difficulty
-- **LLM Layer** — GPT-4 provides natural-language comparison analysis, highlighting benefits, drawbacks, application ease, and processing time tradeoffs.
+| Dimension | Weight | Source |
+|---|---|---|
+| Eligibility | 40% | Rule-based (income, category, state, gender, education) |
+| Benefit Value | 25% | LLM evaluates financial amount, coverage, frequency |
+| Goal Alignment | 25% | LLM matches scheme category to user goals/education |
+| Complexity | 10% | Number of steps, documents required |
 
 ---
 
 ## 🧰 Development
 
 ### Code Style
-
 ```bash
-# Install dev dependencies
 pip install black ruff mypy
-
-# Format code
 black backend/
-
-# Lint
 ruff check backend/
 ```
 
 ### Testing
-
 ```bash
 cd backend
 pytest -v
 ```
 
----
-
-## 📁 Database Schema
-
-```mermaid
-erDiagram
-    profiles {
-        uuid id PK
-        string name
-        int age
-        string state
-        int income
-        string occupation
-        string education_level
-        string category
-        text goals
-        datetime created_at
-        datetime updated_at
-    }
-
-    schemes {
-        uuid id PK
-        string scheme_name
-        string category
-        string state
-        text description
-        text benefits
-        text eligibility
-        jsonb documents
-        jsonb application_steps
-        string apply_url
-        json embedding
-        datetime created_at
-        datetime updated_at
-    }
-
-    scheme_comparisons {
-        uuid id PK
-        uuid profile_id FK
-        jsonb scheme_ids
-        jsonb report
-        datetime created_at
-    }
-
-    profiles ||--o{ scheme_comparisons : has
-    schemes ||--o{ scheme_comparisons : included_in
+### Data Pipeline (Re-scrape & Re-embed)
+```bash
+cd data-engineering
+python batch_normalizer.py           # Normalize raw JSON → normalized_schemes.json
+python generate_embeddings.py        # gte-small → schemes_with_embeddings.json
+python bulk_insert.py                # Insert to Supabase
 ```
 
 ---
 
 ## 🚧 Roadmap
 
-- [x] Profile CRUD with full validation
-- [x] Rule-based eligibility filtering
-- [x] RAG-based vector search (OpenAI + pgvector)
-- [x] Weighted decision engine scoring
-- [x] LLM-powered scheme comparison
-- [x] Supabase PostgreSQL integration
-- [ ] Scheme data seeding scripts
-- [ ] Frontend dashboard
-- [ ] Multi-language support
-- [ ] User authentication & authorization
+- [x] LangGraph 11-node agent pipeline
+- [x] pgvector hybrid search (vector + trigram + text)
+- [x] 1000+ scraped Indian government schemes
+- [x] Local LLM (Qwen2.5:3B) inference
+- [x] React frontend (Dashboard, Comparison, Simulator, Chat)
+- [x] Supabase Auth + PostgreSQL + Storage
+- [x] Document upload / Aadhaar parsing
+- [x] What-if simulator
+- [ ] Multi-language support (Hindi + regional)
+- [ ] Scheme scraping auto-refresh (cron)
 - [ ] Admin panel for scheme management
-- [ ] Analytics & reporting
+- [ ] Mobile app (React Native)
 
 ---
 
 ## 🤝 Contributing
 
-This project was built for the **USAII Global AI Hackathon 2026**. Contributions, ideas, and feedback are welcome!
+Built for the **USAII Global AI Hackathon 2026**. Contributions welcome!
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+3. Commit your changes
+4. Push to the branch
 5. Open a Pull Request
 
 ---
